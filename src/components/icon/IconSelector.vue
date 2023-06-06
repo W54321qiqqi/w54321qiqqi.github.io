@@ -284,8 +284,6 @@ onMounted(() => {
   align-items: center;
   width: 50vw;
   margin: 10vh auto;
-
-
 }
 
 .size-small {
