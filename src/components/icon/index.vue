@@ -32,7 +32,6 @@ export default defineComponent({
         color: color,
       }
     })
-
     if (props.name.indexOf('el-icon-') === 0) {
       return () =>
         createVNode(

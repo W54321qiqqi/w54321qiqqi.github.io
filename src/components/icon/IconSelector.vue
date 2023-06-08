@@ -1,5 +1,5 @@
 <template>
-  <div id="icon-selector-mask" class="masking">
+  <div id="icon-selector-mask" :class="{ masking: show }">
     <div class="icon-selector-wrapper">
       <div class="tips">
         <div class="tip">
@@ -132,6 +132,7 @@ import { Placement } from 'element-plus'
 type IconType = 'ele' | 'awe' | 'ali' | 'local'
 
 interface Props {
+  show: boolean
   size?: 'default' | 'small' | 'large'
   disabled?: boolean
   title?: string
@@ -141,6 +142,7 @@ interface Props {
   showIconName?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
+  show: false,
   size: 'default',
   disabled: false,
   title: '',

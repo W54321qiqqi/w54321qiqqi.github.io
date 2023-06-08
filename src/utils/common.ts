@@ -1,6 +1,6 @@
 import type { App } from 'vue'
 import * as elIcons from '@element-plus/icons-vue'
-import Icon from '../components/icon/index.vue'
+import Icon from '/@/components/icon/index.vue'
 
 export function registerIcons(app: App) {
   /*
