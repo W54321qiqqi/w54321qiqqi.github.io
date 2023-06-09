@@ -119,7 +119,6 @@
 </template>
 
 <script setup lang="ts">
-// import { reactive, ref, onMounted, nextTick, watch, computed } from 'vue'
 import {
   getAwesomeIconfontNames,
   getIconfontNames,
@@ -248,10 +247,6 @@ const getInputWidth = () => {
       selectorInput.value.$el.offsetWidth < 260
         ? 260
         : selectorInput.value.$el.offsetWidth
-    console.log(
-      '🚀 ~ file: iconSelector.vue:236 ~ nextTick ~ state.selectorWidth:',
-      state.selectorWidth,
-    )
   })
 }
 

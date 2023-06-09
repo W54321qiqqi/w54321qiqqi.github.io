@@ -18,12 +18,12 @@ const props = withDefaults(defineProps<Props>(), {
   color: '#000000',
 })
 
-const s = `${props.size.replace('px', '')}px`
+const fontSize = `${props.size.replace('px', '')}px`
 const iconName = computed(() => `#${props.name}`)
 const iconStyle = computed((): CSSProperties => {
   return {
     color: props.color,
-    fontSize: s,
+    fontSize,
   }
 })
 </script>

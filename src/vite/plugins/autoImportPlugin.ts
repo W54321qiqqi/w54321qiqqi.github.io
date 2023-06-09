@@ -9,16 +9,7 @@ export default AutoImport({
   ],
 
   // global imports to register
-  imports: [
-    'vue',
-    'vue-router',
-    {
-      '@vueuse/core': [
-        // named imports
-        'useEventListener', // import { useMouse } from '@vueuse/core',
-      ],
-    },
-  ],
+  imports: ['vue', 'vue-router'],
 
   dts: 'src/types/auto-imports.d.ts',
 

@@ -56,8 +56,6 @@ declare global {
   const useCssVars: typeof import('vue')['useCssVars']
   const useEventListener: typeof import('@vueuse/core')['useEventListener']
   const useLink: typeof import('vue-router')['useLink']
-  const useMouse: typeof import('@vueuse/core')['useMouse']
-  const useMyFetch: typeof import('@vueuse/core')['useFetch']
   const useRoute: typeof import('vue-router')['useRoute']
   const useRouter: typeof import('vue-router')['useRouter']
   const useSlots: typeof import('vue')['useSlots']
@@ -69,13 +67,5 @@ declare global {
 // for type re-export
 declare global {
   // @ts-ignore
-  export type {
-    Component,
-    ComponentPublicInstance,
-    ComputedRef,
-    InjectionKey,
-    PropType,
-    Ref,
-    VNode,
-  } from 'vue'
+  export type { Component, ComponentPublicInstance, ComputedRef, InjectionKey, PropType, Ref, VNode } from 'vue'
 }

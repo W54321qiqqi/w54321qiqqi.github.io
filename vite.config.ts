@@ -17,23 +17,7 @@ const viteConfig = (): UserConfig => {
     assets: pathResolve('./src/assets'),
   }
   return {
-    plugins: [
-      vue(),
-      svgBuilder('./src/assets/icons/'),
-      AutoImport,
-      Components,
-      // AutoImport({
-      //   eslintrc: {
-      //     enabled: true,
-      //     filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
-      //     globalsPropValue: true,
-      //   },
-      //   resolvers: [ElementPlusResolver()],
-      // }),
-      // Components({
-      //   resolvers: [ElementPlusResolver()],
-      // }),
-    ],
+    plugins: [vue(), svgBuilder('./src/assets/icons/'), AutoImport, Components],
     resolve: { alias },
   }
 }

@@ -1,10 +1,20 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
 export default {
-  content: [],
-  darkMode: false,
+  content: [
+    './index.html', './src/**/*.{vue,js,ts,jsx,tsx}'
+  ],
+  // darkMode: media,
   theme: {
-    extend: {},
+    extend: {
+
+    },
   },
-  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  plugins: [],
+  plugins: [plugin(function ({ addUtilities }) {
+    addUtilities({
+      // '.items-space-between': {
+      //   alignItems: 'space-between',
+      // }
+    })
+  })],
 }
