@@ -25,7 +25,7 @@
             class="flex-grow w-full sm:w-[300px] md:w-[400px] lg:w-[300px] p-5 flex flex-col justify-center bg-white"
           >
             <div>
-              <h2 class="text-lg text-center mb-5">simple-admin</h2>
+              <h2 class="text-2xl text-center mb-5">Welcome back</h2>
               <el-form ref="loginFormRef" label-position="top">
                 <el-form-item prop="phone" label="用户名">
                   <el-input
