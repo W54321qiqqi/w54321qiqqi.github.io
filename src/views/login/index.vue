@@ -1,63 +1,72 @@
 <template>
-  <div id="bubble" class="overflow-hidden">
-    <canvas id="bubble-canvas" class="bubble-canvas"></canvas>
-  </div>
-  <div
-    class="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center"
-  >
+  <div class="bg-[#afcffb]">
+    <div id="bubble" class="overflow-hidden w-screen h-screen">
+      <canvas id="bubble-canvas" class="bubble-canvas"></canvas>
+    </div>
     <div
-      class="h-[500px] flex box-border shadow-neutral-300 overflow-hidden rounded border"
+      class="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center"
     >
-      <div
-        class="w-[400px] relative bg-slate-200 h-full flex items-center justify-center"
-      >
-        <img :src="loginPic.loginLeftPic" class="w-5/6" />
-      </div>
-      <div class="w-[400px] p-5 flex flex-col justify-between bg-white">
-        <div class="w-32 m-auto">
-          <img :src="loginPic.logo" alt="logo" />
+      <div class="shadow-md shadow-slate-400 overflow-hidden rounded border">
+        <div
+          class="bg-white border-b shadow-lg shadow-slate-400 h-14 flex items-center"
+        >
+          <img :src="loginPic.logo" class="w-16 ml-5" />
+          <h1 class="m-0 mr-5 align-middle">V3 Admin</h1>
         </div>
-        <div class="h-3/5">
-          <h4 class="text-slate-500 text-lg text-center mb-4">simple-admin</h4>
-          <el-form ref="loginFormRef">
-            <el-form-item prop="phone">
-              <el-input
-                type="text"
-                size="large"
-                placeholder="手机号"
-                tabindex="1"
-                clearable
-                autocomplete="on"
-              >
-                <template #prefix>
-                  <el-icon></el-icon>
-                </template>
-              </el-input>
-            </el-form-item>
-            <el-form-item type="text" prop="password">
-              <el-input
-                type="password"
-                size="large"
-                show-password
-                placeholder="密码"
-                tabindex="2"
-                clearable
-                autocomplete="on"
-              >
-                <template #prefix>
-                  <el-icon></el-icon>
-                </template>
-              </el-input>
-            </el-form-item>
-            <div class="flex-bar">
-              <el-checkbox>记住我</el-checkbox>
+        <div class="w-full h-[500px] flex box-border">
+          <!-- 登陆框左侧 -->
+          <div
+            class="w-0 sm:w-0 md:w-0 lg:w-[700px] relative bg-[#e4efff] h-full flex items-center justify-center"
+          >
+            <img :src="loginPic.loginLeftPic" class="w-5/6 h-5/6" />
+          </div>
+          <!-- 登陆 -->
+          <div
+            class="flex-grow w-full sm:w-[300px] md:w-[400px] lg:w-[300px] p-5 flex flex-col justify-center bg-white"
+          >
+            <div>
+              <h2 class="text-lg text-center mb-5">simple-admin</h2>
+              <el-form ref="loginFormRef" label-position="top">
+                <el-form-item prop="phone" label="用户名">
+                  <el-input
+                    type="text"
+                    size="large"
+                    placeholder="请输入用户名"
+                    tabindex="1"
+                    clearable
+                    autocomplete="on"
+                  >
+                    <template #prefix>
+                      <Icon name="el-icon-User"></Icon>
+                    </template>
+                  </el-input>
+                </el-form-item>
+                <el-form-item type="text" prop="password" label="密码">
+                  <el-input
+                    type="password"
+                    size="large"
+                    show-password
+                    placeholder="请输入密码"
+                    tabindex="2"
+                    clearable
+                    autocomplete="on"
+                  >
+                    <template #prefix>
+                      <Icon name="el-icon-Lock"></Icon>
+                    </template>
+                  </el-input>
+                </el-form-item>
+                <el-form-item>
+                  <el-checkbox>记住我</el-checkbox>
+                </el-form-item>
+                <el-form-item>
+                  <el-button type="primary" size="large" class="w-full">
+                    <span>登陆</span>
+                  </el-button>
+                </el-form-item>
+              </el-form>
             </div>
-            <el-form-item>
-              <el-button type="primary" size="large" class="w-full">
-                <span>登录</span>
-              </el-button>
-            </el-form-item>
-          </el-form>
+          </div>
         </div>
       </div>
     </div>

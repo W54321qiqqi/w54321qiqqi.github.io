@@ -3,35 +3,28 @@
 const bubble: {
   width: number
   height: number
-  bubbleEl: any
-  canvas: any
-  ctx: any
+  canvas: HTMLCanvasElement | null
+  ctx: CanvasRenderingContext2D | null
   circles: any[]
   animate: boolean
   requestId: any
 } = {
   width: 0,
   height: 0,
-  bubbleEl: null,
   canvas: null,
-  ctx: {},
+  ctx: null,
   circles: [],
   animate: true,
   requestId: null,
 }
 
-export const init = function (): void {
+export const init = function () {
   bubble.width = window.innerWidth
   bubble.height = window.innerHeight
-
-  bubble.bubbleEl = document.getElementById('bubble')
-  bubble.bubbleEl.style.height = bubble.height + 'px'
-
-  bubble.canvas = document.getElementById('bubble-canvas')
+  bubble.canvas = document.getElementById('bubble-canvas') as HTMLCanvasElement
   bubble.canvas.width = bubble.width
   bubble.canvas.height = bubble.height
-  bubble.ctx = bubble.canvas.getContext('2d')
-
+  bubble.ctx = bubble.canvas.getContext('2d') as CanvasRenderingContext2D
   // create particles
   bubble.circles = []
   for (let x = 0; x < bubble.width * 0.5; x++) {
@@ -49,14 +42,13 @@ function scrollCheck() {
 function resize() {
   bubble.width = window.innerWidth
   bubble.height = window.innerHeight
-  bubble.bubbleEl.style.height = bubble.height + 'px'
-  bubble.canvas.width = bubble.width
-  bubble.canvas.height = bubble.height
+  bubble.canvas!.width = bubble.width
+  bubble.canvas!.height = bubble.height
 }
 
 function animate() {
   if (bubble.animate) {
-    bubble.ctx.clearRect(0, 0, bubble.width, bubble.height)
+    bubble.ctx!.clearRect(0, 0, bubble.width, bubble.height)
     for (const i in bubble.circles) {
       bubble.circles[i].draw()
     }
@@ -87,8 +79,8 @@ class Circle {
     this.draw = function () {
       this.pos.y -= this.velocity
       this.alpha -= 0.0005
-      bubble.ctx.beginPath()
-      bubble.ctx.arc(
+      bubble.ctx!.beginPath()
+      bubble.ctx!.arc(
         this.pos.x,
         this.pos.y,
         this.scale * 10,
@@ -96,8 +88,8 @@ class Circle {
         2 * Math.PI,
         false,
       )
-      bubble.ctx.fillStyle = `rgba(${r},${g},${b},${this.alpha})`
-      bubble.ctx.fill()
+      bubble.ctx!.fillStyle = `rgba(${r},${g},${b},${this.alpha})`
+      bubble.ctx!.fill()
     }
   }
 }

@@ -377,11 +377,13 @@ onMounted(() => {
     opacity: 1;
   }
 }
+
 .tips {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
   font-weight: bold;
+
   .tip {
     display: flex;
     align-items: center;

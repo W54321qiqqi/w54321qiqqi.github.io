@@ -10,12 +10,24 @@
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "format": "prettier --write  \"./**/*.{html,vue,ts,js,json,md}\" ",
-    "lint:eslint": "eslint src/**/*.{ts,vue} --cache --fix",
-    "lint:style": "stylelint src/**/*.{css,scss,vue} --cache --fix",
+    "lint:eslint": "eslint src/**/*.{ts,vue}  --fix",
+    "lint:style": "stylelint src/**/*.{css,scss,vue}  --fix",
     "prepare": "husky install",
     "commit": "git cz",
     "commitlint": "commitlint --config commitlint.config.cjs -e -V",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*src/**/*.{ts,vue}": [
+      "eslint --fix"
+    ],
+    "src/**/*.{css,scss,vue}": [
+      "stylelint --fix"
+    ],
+    "./**/*.{html,vue,ts,js,json,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
@@ -23,6 +35,7 @@
     "element-plus": "^2.3.6",
     "normalize.css": "^8.0.1",
     "postcss": "^8.4.24",
+    "postcss-html": "^1.5.0",
     "vue": "^3.2.47",
     "vue-router": "^4.2.2"
   },
@@ -44,6 +57,7 @@
     "eslint-plugin-vue": "^9.14.1",
     "hotkeys-js": "^3.10.2",
     "husky": "^8.0.0",
+    "lint-staged": "^13.2.2",
     "lodash-es": "^4.17.21",
     "sass": "^1.61.0",
     "stylelint": "^15.4.0",
