@@ -2,15 +2,10 @@
   <div>
     <el-container>
       <el-aside
-        class="h-[calc(100vh-32px)] ml-4 mt-4 mb-4 layout-shadow-rounded"
+        class="layout-shadow-rounded mb-4 ml-4 mt-4 h-[calc(100vh-32px)]"
         width="300px"
       >
-        <el-menu
-          default-active="2"
-          class="el-menu-vertical-demo"
-          @open="handleOpen"
-          @close="handleClose"
-        >
+        <el-menu default-active="2" @open="handleOpen" @close="handleClose">
           <el-sub-menu index="1">
             <template #title>
               <span>Navigator One</span>
@@ -41,7 +36,7 @@
       <el-container>
         <el-header class="layout-header">
           <div
-            class="ml-4 mt-5 mr-4 h-[50px] layout-shadow-rounded leading-[50px]"
+            class="layout-shadow-rounded ml-4 mr-4 mt-5 h-[50px] leading-[50px]"
           >
             Header
           </div>
@@ -61,4 +56,11 @@ const handleClose = (key: string, keyPath: string[]) => {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@tailwind components;
+@layer components {
+  .layout-header {
+    @apply h-auto p-0;
+  }
+}
+</style>
