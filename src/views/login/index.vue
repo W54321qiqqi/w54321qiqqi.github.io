@@ -22,7 +22,7 @@
           </div>
           <!-- 登陆 -->
           <div
-            class="flex-grow w-full sm:w-[300px] md:w-[400px] lg:w-[300px] p-5 flex flex-col justify-center bg-white"
+            class="flex-grow w-full w-[300px] sm:w-[300px] md:w-[400px] lg:w-[300px] p-5 flex flex-col justify-center bg-white"
           >
             <div>
               <h2 class="text-2xl text-center mb-5">Welcome back</h2>

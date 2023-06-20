@@ -1,5 +1,6 @@
 module.exports = {
   plugins: {
+    tailwindcss: {},
     // 'postcss-px2vp': {
     //   // 需要转换的单位，默认为"px"
     //   unitToConvert: 'px',
