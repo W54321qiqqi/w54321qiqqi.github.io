@@ -3,6 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
+  "author": "一个小瘪三",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/menon-qiqi/simple_admin_template"
+  },
   "scripts": {
     "build": "vue-tsc && vite build",
     "commit": "git cz",
