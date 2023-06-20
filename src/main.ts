@@ -7,7 +7,6 @@ function start() {
   const app = createApp(App)
   registerIcons(app) // icons
   app.use(router)
-  app.use(ElementPlus)
   app.mount('#app')
 }
 start()
