@@ -3,7 +3,7 @@
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "removeComments": false,
     "strict": true,
     "jsx": "preserve",
@@ -12,13 +12,20 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "lib": ["esnext", "dom"],
-    "isolatedModules": true,
+    // "isolatedModules": true,
     "baseUrl": "./",
     "paths": {
-      "/@/*": ["src/*"],
-      "assets": ["src/assets/*"]
+      "/@/*": ["src/*"]
     },
     "types": ["element-plus/global"]
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.vue",
+    "vite.config.ts",
+    "types/**/*.d.ts",
+    "types/**/*.ts"
+  ]
 }

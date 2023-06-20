@@ -11,7 +11,7 @@ export default AutoImport({
   // global imports to register
   imports: ['vue', 'vue-router'],
 
-  dts: 'src/types/auto-imports.d.ts',
+  dts: './types/auto-imports.d.ts',
 
   vueTemplate: false,
 
