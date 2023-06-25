@@ -1,24 +1,20 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-const constantRoutes = [
-  {
-    path: '/',
-    redirect: '/login',
-  },
-  {
-    path: '/layout',
-    name: 'Layout',
-    component: () => import('/@/layout/index.vue'),
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: () => import('/@/views/login/index.vue'),
-  },
-]
-const creatRouter = () =>
-  createRouter({
-    history: createWebHashHistory(),
-    routes: constantRoutes,
+import { createWebHashHistory, createRouter } from 'vue-router'
+import { AppRouteType } from './types'
+import { basicRoutes, asyncRoutes, WHITE_LIST } from './basic'
+
+const router = createRouter({
+  history: createWebHashHistory(import.meta.env.BASE_URL),
+  routes: [...basicRoutes, ...asyncRoutes] as AppRouteType[],
+  // only history
+  scrollBehavior: () => ({ left: 0, top: 0 }),
+})
+export function resetRouter() {
+  router.getRoutes().forEach((route) => {
+    const { name } = route
+    if (name && !WHITE_LIST.includes(name as string)) {
+      router.hasRoute(name) && router.removeRoute(name)
+    }
   })
-const router = creatRouter()
+}
+
 export default router

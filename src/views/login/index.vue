@@ -1,37 +1,37 @@
 <template>
   <div class="bg-[#afcffb]">
-    <div id="bubble" class="overflow-hidden w-screen h-screen">
+    <div id="bubble" class="h-screen w-screen overflow-hidden">
       <canvas id="bubble-canvas" class="bubble-canvas"></canvas>
     </div>
     <div
-      class="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center"
+      class="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center"
     >
-      <div class="shadow-md shadow-slate-400 overflow-hidden rounded border">
+      <div class="overflow-hidden rounded border shadow-md shadow-slate-400">
         <div
-          class="bg-white border-b shadow-lg shadow-slate-400 h-14 flex items-center"
+          class="flex h-14 items-center border-b bg-white shadow-lg shadow-slate-400"
         >
-          <img :src="loginPic.logo" class="w-16 ml-5" />
-          <h1 class="m-0 mr-5 align-middle">V3 Admin</h1>
+          <img :src="loginPic.logo" class="ml-5 w-16" />
+          <h1 class="m-0 mr-5 align-middle">V3 Template</h1>
         </div>
-        <div class="w-full h-[500px] flex box-border">
+        <div class="box-border flex h-[500px] w-full">
           <!-- 登录框左侧 -->
           <div
-            class="w-0 sm:w-0 md:w-0 lg:w-[700px] relative bg-[#e4efff] h-full flex items-center justify-center"
+            class="relative flex h-full w-0 items-center justify-center bg-[#e4efff] sm:w-0 md:w-0 lg:w-[700px]"
           >
-            <img :src="loginPic.loginLeftPic" class="w-5/6 h-5/6" />
+            <img :src="loginPic.loginLeftPic" class="h-5/6 w-5/6" />
           </div>
           <!-- 登录 -->
           <div
-            class="flex-grow w-[300px] sm:w-[300px] md:w-[400px] lg:w-[300px] p-5 flex flex-col justify-center bg-white"
+            class="flex w-[300px] flex-grow flex-col justify-center bg-white p-5 sm:w-[300px] md:w-[400px] lg:w-[300px]"
           >
             <div>
-              <h2 class="text-2xl text-center mb-5">Welcome back</h2>
+              <h2 class="mb-5 text-center text-2xl">Welcome back</h2>
               <el-form ref="loginFormRef" label-position="top">
                 <el-form-item prop="phone" label="用户名">
                   <el-input
                     type="text"
                     size="large"
-                    placeholder="请输入用户名"
+                    placeholder="请输入用户名(admin or test)"
                     tabindex="1"
                     clearable
                     autocomplete="on"
@@ -46,7 +46,7 @@
                     type="password"
                     size="large"
                     show-password
-                    placeholder="请输入密码"
+                    placeholder="请输入密码(123456)"
                     tabindex="2"
                     clearable
                     autocomplete="on"

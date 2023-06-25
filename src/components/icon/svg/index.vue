@@ -1,5 +1,5 @@
 <template>
-  <svg class="svg-icon icon" :style="iconStyle">
+  <svg class="h-[1em] w-[1em] overflow-hidden fill-current" :style="iconStyle">
     <use :href="iconName" />
   </svg>
 </template>
@@ -28,11 +28,4 @@ const iconStyle = computed((): CSSProperties => {
 })
 </script>
 
-<style scoped>
-.svg-icon {
-  width: 1em;
-  height: 1em;
-  overflow: hidden;
-  fill: currentColor;
-}
-</style>
+<style scoped></style>

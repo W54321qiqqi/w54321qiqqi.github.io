@@ -48,3 +48,29 @@ export function loadJs(url: string): void {
 export function isExternal(path: string): boolean {
   return /^(https?|ftp|mailto|tel):/.test(path)
 }
+
+/**
+ * 排除掉obj里面的key值
+ * @param {object} obj
+ * @param {Array|string} args
+ * @returns {object}
+ */
+export function omit<T extends Record<string, any>, P extends keyof T>(
+  obj: T,
+  args: string | string[],
+) {
+  if (!args) return obj
+  const newObj = {} as Omit<T, P>
+  const isString = typeof args === 'string'
+  const keys = Object.keys(obj).filter((item) => {
+    if (isString) {
+      return item !== args
+    }
+    return !(<P[]>args).includes(item as P)
+  }) as Exclude<keyof T, P>[]
+
+  keys.forEach((key) => {
+    if (obj[key] !== undefined) newObj[key] = obj[key]
+  })
+  return newObj
+}
