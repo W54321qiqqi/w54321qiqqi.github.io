@@ -15,7 +15,7 @@
   }
 
   .layout-header-fixed {
-    @apply fixed left-4 top-0 z-50 h-[50px] w-[calc(100vw-32px)] leading-[50px];
+    @apply fixed left-0 top-0 z-[12] h-[50px] w-screen leading-[50px];
   }
 }
 </style>

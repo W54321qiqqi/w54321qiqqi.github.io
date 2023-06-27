@@ -7,11 +7,13 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    BaseBacktop: typeof import('./../src/components/base-backtop/index.vue')['default']
     Box: typeof import('./../src/components/box/index.vue')['default']
     ChaseSpin: typeof import('./../src/components/loading/spin/chaseSpin.vue')['default']
     CubeSpin: typeof import('./../src/components/loading/spin/cubeSpin.vue')['default']
     DotSpin: typeof import('./../src/components/loading/spin/dotSpin.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
+    ElBacktop: typeof import('element-plus/es')['ElBacktop']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElContainer: typeof import('element-plus/es')['ElContainer']

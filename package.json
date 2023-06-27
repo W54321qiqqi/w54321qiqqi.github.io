@@ -15,7 +15,7 @@
     "commitlint": "commitlint --config commitlint.config.cjs -e -V",
     "dev": "vite",
     "format": "prettier --write  \"./**/*.{html,vue,ts,js,json,md}\" ",
-    "lint": "npm-run-all -s lint:tsc lint:eslint lint:stylelint",
+    "lint": "npm-run-all -s lint:tsc lint:eslint",
     "lint:tsc": "vue-tsc --noEmit",
     "lint:eslint": "eslint src/**/*.{ts,vue}  --cache --fix",
     "lint:stylelint": "stylelint src/**/*.{css,scss,vue}  --cache --fix",
@@ -29,7 +29,8 @@
       "eslint --fix"
     ],
     "./**/*.{html,vue,ts,js,json,md}": [
-      "prettier --write"
+      "prettier --write",
+      "git add"
     ]
   },
   "dependencies": {

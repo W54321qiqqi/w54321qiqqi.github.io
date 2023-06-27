@@ -1,11 +1,12 @@
 <template>
   <el-container>
     <layout-header />
+    <side-bar></side-bar>
     <el-container>
-      <side-bar></side-bar>
       <layout-main />
     </el-container>
   </el-container>
+  <base-backtop :bottom="60" />
 </template>
 
 <script lang="ts" setup>

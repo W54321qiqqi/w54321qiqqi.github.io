@@ -1,5 +1,5 @@
 <template>
-  <el-main id="layout-main">
+  <el-main class="layout-main">
     <router-view></router-view>
   </el-main>
 </template>
@@ -9,8 +9,8 @@
 <style scoped lang="scss">
 @tailwind components;
 @layer components {
-  #layout-main {
-    @apply w-screen pl-[316px] pt-[66px];
+  .layout-main {
+    @apply box-border  w-full pl-[316px] pt-[66px];
   }
 }
 </style>

@@ -1,3 +1,5 @@
 {
-  "recommendations": ["vue.volar", "vue.vscode-typescript-vue-plugin"]
+  "recommendations": ["vue.volar", "vue.vscode-typescript-vue-plugin"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true // 设置保存时格式化
 }
