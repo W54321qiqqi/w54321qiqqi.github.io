@@ -11,6 +11,7 @@ const about: AppRouteType[] = [
       icon: '',
       sort: 4,
       hideChildren: true,
+      permission: 'admin_icon',
     },
     children: [
       {

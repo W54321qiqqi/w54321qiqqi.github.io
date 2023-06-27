@@ -1,11 +1,20 @@
 <template>
-  <el-header class="layout-filter layout-header-fixed"></el-header>
+  <el-header class="layout-filter layout-header-fixed">
+    <el-button @click="handleLoginOut">退出登录</el-button>
+  </el-header>
   <div
     class="layout-filter layout-shadow-rounded fixed left-[316px] right-0 top-[50px] z-10 h-[34px]"
   ></div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useUserStoreWithOut } from '/@/store/modules/user'
+const router = useRouter()
+const userStore = useUserStoreWithOut()
+const handleLoginOut = () => {
+  userStore.logout(router)
+}
+</script>
 
 <style scoped lang="scss">
 @tailwind components;

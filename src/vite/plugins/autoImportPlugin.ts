@@ -9,7 +9,7 @@ export default AutoImport({
   ],
 
   // global imports to register
-  imports: ['vue', 'vue-router'],
+  imports: ['vue', 'vue-router', 'pinia'],
 
   dts: './types/auto-imports.d.ts',
 

@@ -1,8 +1,8 @@
 import dayjs from 'dayjs'
-import { ErrorMsgEnum, ErrorTypeEnum } from '@/enums/httpEnum'
-import { useErrorLogStoreWithOut } from '@/stores/modules/errorLog'
-import { useMessage } from '@/hooks'
-import { addOperationInfo, Api } from '@/api/log'
+import { ErrorMsgEnum, ErrorTypeEnum } from '/@/enums/httpEnum'
+import { useErrorLogStoreWithOut } from '/@/store/modules/errorLog'
+import { useMessage } from '/@/hooks'
+import { addOperationInfo, Api } from '/@/api/log'
 
 const { error, success } = useMessage()
 

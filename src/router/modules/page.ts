@@ -10,7 +10,7 @@ const page: AppRouteType[] = [
       title: '页面',
       icon: '',
       sort: 2,
-      // permission: "admin_page"
+      permission: 'admin_page',
     },
     children: [
       {
@@ -20,7 +20,7 @@ const page: AppRouteType[] = [
         meta: {
           title: '403',
           sort: 1,
-          // permission: "admin_page_403",
+          permission: 'admin_page_403',
           icon: '',
         },
       },
@@ -31,7 +31,7 @@ const page: AppRouteType[] = [
         meta: {
           title: '404',
           sort: 2,
-          // permission: "admin_page_404",
+          permission: 'admin_page_404',
           icon: '',
         },
       },
@@ -42,7 +42,7 @@ const page: AppRouteType[] = [
         meta: {
           title: '500',
           sort: 3,
-          // permission: "admin_page_500",
+          permission: 'admin_page_500',
           icon: '',
         },
       },
@@ -53,7 +53,7 @@ const page: AppRouteType[] = [
         meta: {
           title: '成功页',
           sort: 4,
-          // permission: "admin_page_success",
+          permission: 'admin_page_success',
           icon: '',
         },
       },
@@ -64,7 +64,7 @@ const page: AppRouteType[] = [
         meta: {
           title: '失败页',
           sort: 5,
-          // permission: "admin_page_error",
+          permission: 'admin_page_error',
           icon: '',
         },
       },

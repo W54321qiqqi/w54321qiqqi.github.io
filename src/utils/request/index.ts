@@ -6,7 +6,7 @@ import type {
 } from 'axios'
 import axios from 'axios'
 import { useEnv } from '/@/hooks'
-import { ResultEnum, ContentTypeEnum } from '/@/enums/httpEnum'
+import { ResultEnum, RequestEnum, ContentTypeEnum } from '/@/enums/httpEnum'
 import { useUserStoreWithOut } from '/@/store/modules/user'
 import { setErrorMessage, addAjaxErrorLog, addAjaxLog } from './log'
 import { AxiosLoading } from './loading'
@@ -90,19 +90,19 @@ service.interceptors.response.use(
 
 const request = {
   get<T = any>(url: string, data?: any, config?: axiosConfig): Promise<T> {
-    return request.request('GET', url, { params: data }, config)
+    return request.request(RequestEnum.GET, url, { params: data }, config)
   },
   post<T = any>(url: string, data?: any, config?: axiosConfig): Promise<T> {
-    return request.request('POST', url, { data }, config)
+    return request.request(RequestEnum.POST, url, { data }, config)
   },
   put<T = any>(url: string, data?: any, config?: axiosConfig): Promise<T> {
-    return request.request('PUT', url, { data }, config)
+    return request.request(RequestEnum.PUT, url, { data }, config)
   },
   delete<T = any>(url: string, data?: any, config?: axiosConfig): Promise<T> {
-    return request.request('DELETE', url, { params: data }, config)
+    return request.request(RequestEnum.DELETE, url, { params: data }, config)
   },
   request<T = any>(
-    method = 'GET',
+    method = RequestEnum.GET,
     url: string,
     data?: any,
     config?: axiosConfig,

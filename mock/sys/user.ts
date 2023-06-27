@@ -1,32 +1,50 @@
 import { MockMethod } from 'vite-plugin-mock'
-import { userData } from '../_constant'
+import { RequestParams, resultSuccess, resultError } from '../_utils'
+import { userData, roleData } from '../_constant'
 import { Random } from 'mockjs'
-import { resultError, resultSuccess } from '../_util'
+
 export default [
-  // mock user login
   {
     url: '/api/login',
-    timeout: 200,
     method: 'post',
-    response: ({ body }: { body: Record<string, string> }) => {
-      const { username, password } = body
-      const checkUser = userData.find(
-        (item) => item.username === username && password === item.password,
+    response: (request: RequestParams) => {
+      const { username, password } = request.body
+      const userItem = userData.find(
+        (item) => item.username === username && item.password === password,
       )
-      if (!checkUser) {
-        return resultError('Incorrect account or password！')
+      if (!userItem) {
+        return resultError('该用户不存在')
       }
-      const { id, username: _username, desc, role } = checkUser
-      const token = Random.string(
-        'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-.123456789',
-        180,
-      )
       return resultSuccess({
-        token,
-        role,
-        id,
-        username: _username,
-        desc,
+        token:
+          userItem.role +
+          Random.string(
+            'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-.123456789',
+            180,
+          ),
+      })
+    },
+  },
+  {
+    url: '/api/getUserInfo',
+    method: 'get',
+    response: (request: RequestParams) => {
+      const { authorization } = request.headers as any
+      if (!authorization) {
+        return resultError('获取用户信息失败')
+      }
+      const userItem = userData.find((item) =>
+        authorization.includes(item.role),
+      )
+      if (!userItem) {
+        return resultError('获取用户信息失败：未找到该用户')
+      }
+      const roleIds = roleData.find(
+        (item) => item.role === userItem.role,
+      )?.menuIds
+      return resultSuccess({
+        ...userItem,
+        roleIds,
       })
     },
   },

@@ -1,5 +1,6 @@
 import type { PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from './autoImportPlugin'
 import Components from './componentsPlugin'
 import { svgBuildPlugin } from './svgBuildPlugin'
@@ -10,6 +11,7 @@ export default function createVitePlugins(
 ) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     vue(),
+    vueJsx({}),
     AutoImport,
     Components,
     svgBuildPlugin('./src/assets/icons/'),

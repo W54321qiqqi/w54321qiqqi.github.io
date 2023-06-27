@@ -8,7 +8,7 @@
         class="layout-menu layout-shadow-rounded"
       >
         <side-bar-item
-          v-for="route in routeList.route"
+          v-for="route in permissionStore.route"
           :key="route.path"
           :item="route"
         />
@@ -20,8 +20,7 @@
 <script lang="ts" setup>
 import SideBarItem from './side-bar-item.vue'
 import { usePermissionStoreWithOut } from '/@/store/modules/permission'
-usePermissionStoreWithOut().initRoute()
-const routeList = usePermissionStoreWithOut()
+const permissionStore = usePermissionStoreWithOut()
 </script>
 
 <style lang="scss" scoped>

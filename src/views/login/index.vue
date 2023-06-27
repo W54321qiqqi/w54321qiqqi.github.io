@@ -26,8 +26,13 @@
           >
             <div>
               <h2 class="mb-5 text-center text-2xl">Welcome back</h2>
-              <el-form ref="loginFormRef" label-position="top">
-                <el-form-item prop="phone" label="用户名">
+              <el-form
+                ref="loginFormRef"
+                label-position="top"
+                :rules="loginRules"
+                :model="loginForm"
+              >
+                <el-form-item prop="username" label="用户名">
                   <el-input
                     type="text"
                     size="large"
@@ -35,6 +40,8 @@
                     tabindex="1"
                     clearable
                     autocomplete="on"
+                    v-model="loginForm.username"
+                    @keyup.enter="goPassword"
                   >
                     <template #prefix>
                       <Icon name="el-icon-User"></Icon>
@@ -47,9 +54,11 @@
                     size="large"
                     show-password
                     placeholder="请输入密码(123456)"
+                    v-model="loginForm.password"
                     tabindex="2"
                     clearable
                     autocomplete="on"
+                    ref="passwordRef"
                   >
                     <template #prefix>
                       <Icon name="el-icon-Lock"></Icon>
@@ -57,10 +66,21 @@
                   </el-input>
                 </el-form-item>
                 <el-form-item>
-                  <el-checkbox>记住我</el-checkbox>
+                  <el-checkbox
+                    v-model="loginForm.remember"
+                    :true-label="1"
+                    :false-label="0"
+                  >
+                    记住我
+                  </el-checkbox>
                 </el-form-item>
                 <el-form-item>
-                  <el-button type="primary" size="large" class="w-full">
+                  <el-button
+                    type="primary"
+                    size="large"
+                    class="w-full"
+                    @click="handleLogin"
+                  >
                     <span>登录</span>
                   </el-button>
                 </el-form-item>
@@ -91,6 +111,7 @@
 import * as pageBubble from '/@/utils/pageBubble'
 import loginLeftPic from '/@/assets/images/login-pics/loginLeftPic.png'
 import logo from '/@/assets/images/login-pics/logo.png'
+import { useUserStoreWithOut } from '/@/store/modules/user'
 let timer: number
 const loginPic = reactive({
   loginLeftPic,
@@ -103,6 +124,55 @@ const items = ref<Array<Item>>([
   { type: '', label: 'admin' },
   { type: 'success', label: 'test' },
 ])
+const userStore = useUserStoreWithOut()
+
+const router = useRouter()
+
+const loginFormRef = ref()
+const passwordRef = ref()
+const loading = ref(false)
+
+const loginForm = reactive({
+  username: 'admin',
+  password: '123456',
+  remember: 0,
+})
+const loginRules = {
+  username: [
+    {
+      required: true,
+      message: '请输入用户名',
+      trigger: ['blur', 'change'],
+    },
+  ],
+  password: [
+    {
+      required: true,
+      message: '请输入密码',
+      trigger: ['blur', 'change'],
+    },
+  ],
+}
+const handleLogin = async () => {
+  await unref(loginFormRef).validate(async (valid: boolean) => {
+    if (!valid) return
+    try {
+      loading.value = true
+      await userStore.login(loginForm)
+      setTimeout(() => {
+        router.push({
+          path: '/',
+        })
+      }, 100)
+    } finally {
+      loading.value = false
+    }
+  })
+}
+
+const goPassword = () => {
+  unref(passwordRef).instance.focus()
+}
 onMounted(() => {
   timer = window.setTimeout(() => {
     pageBubble.init()
