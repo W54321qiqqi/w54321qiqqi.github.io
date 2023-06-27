@@ -1,8 +1,6 @@
 <script lang="tsx">
 import { loadingMap, LoadingEnum } from '/@/enums/loadingEnum'
-
 import type { Component, PropType } from 'vue'
-
 export default defineComponent({
   props: {
     text: {

@@ -1,5 +1,5 @@
 <template>
-  <div>测试递归菜单</div>
+  <div>测试单级菜单</div>
 </template>
 
 <script setup lang="ts"></script>

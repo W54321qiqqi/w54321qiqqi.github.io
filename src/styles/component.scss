@@ -1,6 +1,6 @@
 @layer components {
   #app {
-    @apply h-full w-full overflow-hidden bg-[#f5f5f5];
+    @apply h-screen w-screen overflow-auto bg-[#f5f5f5];
   }
 
   .layout-shadow-rounded {

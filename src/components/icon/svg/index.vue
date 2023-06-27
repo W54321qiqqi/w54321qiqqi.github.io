@@ -1,5 +1,9 @@
 <template>
-  <svg class="h-[1em] w-[1em] overflow-hidden fill-current" :style="iconStyle">
+  <svg
+    class="h-[1em] w-[1em] overflow-hidden fill-current"
+    aria-hidden="true"
+    :style="iconStyle"
+  >
     <use :href="iconName" />
   </svg>
 </template>
@@ -28,4 +32,4 @@ const iconStyle = computed((): CSSProperties => {
 })
 </script>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

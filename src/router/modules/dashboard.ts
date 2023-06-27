@@ -10,7 +10,6 @@ const dashboard: AppRouteType[] = [
       title: '首页',
       icon: '',
       sort: 1,
-      // permission: "admin_dashboard"
     },
     children: [
       {
@@ -20,7 +19,6 @@ const dashboard: AppRouteType[] = [
         meta: {
           title: '分析页',
           sort: 1,
-          // permission: "admin_dashboard_analysis",
           icon: '',
           affix: true,
         },
@@ -32,7 +30,6 @@ const dashboard: AppRouteType[] = [
         meta: {
           title: '工作台',
           sort: 2,
-          // permission: "admin_dashboard_workbench",
           icon: '',
         },
       },

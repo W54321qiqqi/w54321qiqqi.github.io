@@ -5,7 +5,6 @@ import { basicRoutes, asyncRoutes, WHITE_LIST } from './basic'
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [...basicRoutes, ...asyncRoutes] as AppRouteType[],
-  // only history
   scrollBehavior: () => ({ left: 0, top: 0 }),
 })
 export function resetRouter() {

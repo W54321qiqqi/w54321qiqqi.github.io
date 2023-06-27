@@ -6,9 +6,6 @@ const svgTitle = /<svg([^>+].*?)>/
 const clearHeightWidth = /(width|height)="([^>+].*?)"/g
 const hasViewBox = /(viewBox="[^>+].*?")/g
 const clearReturn = /(\r)|(\n)/g
-// 清理 svg 的 fill
-const clearFill = /(fill="[^>+].*?")/g
-
 function findSvgFile(dir: string): string[] {
   const svgRes = []
   const dirents = readdirSync(dir, {
@@ -22,7 +19,6 @@ function findSvgFile(dir: string): string[] {
       const svg = readFileSync(dir + dirent.name)
         .toString()
         .replace(clearReturn, '')
-        .replace(clearFill, 'fill=""')
         .replace(svgTitle, ($1, $2) => {
           let width = 0
           let height = 0

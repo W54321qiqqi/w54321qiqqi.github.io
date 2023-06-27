@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <div>分析页</div>
-  </div>
+  <!-- TODO -->
+  <div></div>
 </template>
 
 <script setup lang="ts"></script>

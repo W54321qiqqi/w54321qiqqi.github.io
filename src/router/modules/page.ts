@@ -9,7 +9,7 @@ const page: AppRouteType[] = [
     meta: {
       title: '页面',
       icon: '',
-      sort: 7,
+      sort: 2,
       // permission: "admin_page"
     },
     children: [

@@ -1,121 +1,103 @@
 <template>
-  <div id="icon-selector-mask" :class="{ masking: show }">
-    <div class="icon-selector-wrapper">
-      <div class="tips">
-        <div class="tip">
-          <el-tag type="info" size="large">Alt + S</el-tag>
-          <el-tag type="info" size="large">唤醒图标选择器</el-tag>
-        </div>
-        <div class="tip">
-          <el-tag type="info" size="large">ESC</el-tag>
-          <el-tag type="info" size="large">退出</el-tag>
-        </div>
-      </div>
-      <el-popover
-        :placement="placement"
-        trigger="focus"
-        :hide-after="0"
-        :width="state.selectorWidth"
-        :visible="state.popoverVisible"
-      >
-        <div
-          @mouseover.stop="state.iconSelectorMouseover = true"
-          @mouseout.stop="state.iconSelectorMouseover = false"
-          class="icon-selector"
-        >
-          <transition name="el-zoom-in-center">
-            <div class="icon-selector-box">
-              <div class="selector-header">
-                <div class="selector-title">
-                  {{ title ? title : '请选择图标' }}
-                </div>
-                <div class="selector-tab">
-                  <span
-                    title="Element Puls 图标"
-                    @click="onChangeTab('ele')"
-                    :class="{ acive: state.iconType == 'ele' }"
-                  >
-                    ele
-                  </span>
-                  <span
-                    title="Font Awesome 图标"
-                    @click="onChangeTab('awe')"
-                    :class="{ acive: state.iconType == 'awe' }"
-                  >
-                    awe
-                  </span>
-                  <span
-                    title="阿里 Iconfont 图标"
-                    @click="onChangeTab('ali')"
-                    :class="{ acive: state.iconType == 'ali' }"
-                  >
-                    ali
-                  </span>
-                  <span
-                    title="本地图标:/src/assets/icons中的.svg"
-                    @click="onChangeTab('local')"
-                    :class="{ acive: state.iconType == 'local' }"
-                  >
-                    local
-                  </span>
-                </div>
-              </div>
-              <div class="selector-body">
-                <el-scrollbar ref="selectorScrollbarRef">
-                  <div v-if="renderFontIconNames.length > 0">
-                    <div
-                      class="icon-selector-item"
-                      :title="item"
-                      @click="onIcon(item)"
-                      v-for="(item, key) in renderFontIconNames"
-                      :key="key"
-                    >
-                      <Icon :name="item" />
-                    </div>
-                  </div>
-                </el-scrollbar>
-              </div>
+  <el-popover
+    :placement="placement"
+    trigger="focus"
+    :hide-after="0"
+    :width="state.selectorWidth"
+    :visible="state.popoverVisible"
+  >
+    <div
+      @mouseover.stop="state.iconSelectorMouseover = true"
+      @mouseout.stop="state.iconSelectorMouseover = false"
+      class="icon-selector"
+    >
+      <transition name="el-zoom-in-center">
+        <div class="icon-selector-box">
+          <div class="selector-header">
+            <div class="selector-title">
+              {{ title ? title : '请选择图标' }}
             </div>
-          </transition>
-        </div>
-        <template #reference>
-          <el-input
-            v-model="state.inputValue"
-            :size="size"
-            :disabled="disabled"
-            placeholder="搜索图标"
-            ref="selectorInput"
-            @focus="onInputFocus"
-            @blur="onInputBlur"
-            :class="'size-' + size"
-          >
-            <template #prepend>
-              <div class="icon-prepend">
-                <Icon
-                  :key="'icon' + state.iconKey"
-                  :name="
-                    state.prependIcon
-                      ? state.prependIcon
-                      : state.defaultModelValue
-                  "
-                />
-                <div v-if="showIconName" class="name">
-                  {{
-                    state.prependIcon
-                      ? state.prependIcon
-                      : state.defaultModelValue
-                  }}
+            <div class="selector-tab">
+              <span
+                title="Element Puls 图标"
+                @click="onChangeTab('ele')"
+                :class="{ active: state.iconType == 'ele' }"
+              >
+                ele
+              </span>
+              <span
+                title="Font Awesome 图标"
+                @click="onChangeTab('awe')"
+                :class="{ active: state.iconType == 'awe' }"
+              >
+                awe
+              </span>
+              <span
+                title="阿里 Iconfont 图标"
+                @click="onChangeTab('ali')"
+                :class="{ active: state.iconType == 'ali' }"
+              >
+                ali
+              </span>
+              <span
+                title="本地图标:/src/assets/icons中的.svg"
+                @click="onChangeTab('local')"
+                :class="{ active: state.iconType == 'local' }"
+              >
+                local
+              </span>
+            </div>
+          </div>
+          <div class="selector-body">
+            <el-scrollbar ref="selectorScrollbarRef">
+              <div v-if="renderFontIconNames.length > 0">
+                <div
+                  class="icon-selector-item"
+                  :title="item"
+                  @click="onIcon(item)"
+                  v-for="(item, key) in renderFontIconNames"
+                  :key="key"
+                >
+                  <icon :name="item" />
                 </div>
               </div>
-            </template>
-            <template #append>
-              <Icon @click="onInputRefresh" name="el-icon-RefreshRight" />
-            </template>
-          </el-input>
-        </template>
-      </el-popover>
+            </el-scrollbar>
+          </div>
+        </div>
+      </transition>
     </div>
-  </div>
+    <template #reference>
+      <el-input
+        v-model="state.inputValue"
+        :size="size"
+        :disabled="disabled"
+        placeholder="搜索图标"
+        ref="selectorInput"
+        @focus="onInputFocus"
+        @blur="onInputBlur"
+        :class="'size-' + size"
+      >
+        <template #prepend>
+          <div class="icon-prepend">
+            <icon
+              :key="'icon' + state.iconKey"
+              :name="
+                state.prependIcon ? state.prependIcon : state.defaultModelValue
+              "
+            />
+            <div v-if="showIconName" class="name">
+              {{
+                state.prependIcon ? state.prependIcon : state.defaultModelValue
+              }}
+            </div>
+          </div>
+        </template>
+        <template #append>
+          <icon @click="onInputRefresh" name="el-icon-RefreshRight" />
+        </template>
+      </el-input>
+    </template>
+  </el-popover>
 </template>
 
 <script setup lang="ts">
@@ -131,7 +113,6 @@ import { Placement } from 'element-plus'
 type IconType = 'ele' | 'awe' | 'ali' | 'local'
 
 interface Props {
-  show: boolean
   size?: 'default' | 'small' | 'large'
   disabled?: boolean
   title?: string
@@ -141,7 +122,6 @@ interface Props {
   showIconName?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
-  show: false,
   size: 'default',
   disabled: false,
   title: '',
@@ -275,14 +255,6 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-.icon-selector-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50vw;
-  margin: 10vh auto;
-}
-
 .size-small {
   height: 24px;
 }
@@ -355,52 +327,6 @@ onMounted(() => {
 
   :deep(.el-input-group__append) {
     padding: 0 10px;
-  }
-}
-
-#icon-selector-mask {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2000;
-  width: 100%;
-  height: 100%;
-  visibility: hidden;
-  background-image: radial-gradient(transparent 1px, rgb(0 0 0 / 30%) 1px);
-  background-size: 4px 4px;
-  opacity: 0;
-  transition: all 0.2s;
-  backdrop-filter: saturate(50%) blur(4px);
-
-  &.masking {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-.tips {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-  font-weight: bold;
-
-  .tip {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 20px;
-
-    .el-tag {
-      margin: 0 5px;
-
-      &:first-child {
-        margin-left: 0;
-      }
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
   }
 }
 </style>

@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+import iconfontInit from '/@/utils/iconfont'
+onMounted(() => {
+  iconfontInit()
+})
 </script>
 
 <template>
