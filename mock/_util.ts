@@ -1,4 +1,3 @@
-// Interface data format used to return a unified format
 import { ResultEnum } from '/@/enums/httpEnum'
 export function resultSuccess<T = Recordable>(
   result: T,
@@ -8,7 +7,7 @@ export function resultSuccess<T = Recordable>(
     code: ResultEnum.SUCCESS,
     result,
     message,
-    type: 'success',
+    type: ResultEnum.TYPE,
   }
 }
 

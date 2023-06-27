@@ -10,7 +10,7 @@
 @tailwind components;
 @layer components {
   .layout-main {
-    @apply box-border  w-full pl-[316px] pt-[66px];
+    @apply box-border  w-full pl-[316px] pt-[100px];
   }
 }
 </style>

@@ -1,140 +1,33 @@
 import { MockMethod } from 'vite-plugin-mock'
-import {
-  resultError,
-  resultSuccess,
-  getRequestToken,
-  requestParams,
-} from '../_util'
-
-export function createFakeUserList() {
-  return [
-    {
-      userId: '1',
-      username: 'admin',
-      realName: 'admin',
-      avatar: '',
-      desc: 'manager',
-      password: '123456',
-      token: 'fakeToken1',
-      roles: [
-        {
-          roleName: 'Super Admin',
-          value: 'super',
-        },
-      ],
-    },
-    {
-      userId: '2',
-      username: 'test',
-      password: '123456',
-      realName: 'test user',
-      avatar: '',
-      desc: 'tester',
-      token: 'fakeToken2',
-      roles: [
-        {
-          roleName: 'Tester',
-          value: 'test',
-        },
-      ],
-    },
-  ]
-}
-
-const fakeCodeList: any = {
-  '1': ['1000', '3000', '5000'],
-
-  '2': ['2000', '4000', '6000'],
-}
+import { userData } from '../_constant'
+import { Random } from 'mockjs'
+import { resultError, resultSuccess } from '../_util'
 export default [
   // mock user login
   {
-    url: '/basic-api/login',
+    url: '/api/login',
     timeout: 200,
     method: 'post',
     response: ({ body }: { body: Record<string, string> }) => {
       const { username, password } = body
-      const checkUser = createFakeUserList().find(
+      const checkUser = userData.find(
         (item) => item.username === username && password === item.password,
       )
       if (!checkUser) {
         return resultError('Incorrect account or password！')
       }
-      const {
-        userId,
-        username: _username,
-        token,
-        realName,
-        desc,
-        roles,
-      } = checkUser
+      const { id, username: _username, desc, role } = checkUser
+      const token = Random.string(
+        'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-.123456789',
+        180,
+      )
       return resultSuccess({
-        roles,
-        userId,
-        username: _username,
         token,
-        realName,
+        role,
+        id,
+        username: _username,
         desc,
       })
-    },
-  },
-  {
-    url: '/basic-api/getUserInfo',
-    method: 'get',
-    response: (request: requestParams) => {
-      const token = getRequestToken(request)
-      if (!token) return resultError('Invalid token')
-      const checkUser = createFakeUserList().find(
-        (item) => item.token === token,
-      )
-      if (!checkUser) {
-        return resultError(
-          'The corresponding user information was not obtained!',
-        )
-      }
-      return resultSuccess(checkUser)
-    },
-  },
-  {
-    url: '/basic-api/getPermCode',
-    timeout: 200,
-    method: 'get',
-    response: (request: requestParams) => {
-      const token = getRequestToken(request)
-      if (!token) return resultError('Invalid token')
-      const checkUser = createFakeUserList().find(
-        (item) => item.token === token,
-      )
-      if (!checkUser) {
-        return resultError('Invalid token!')
-      }
-      const codeList = fakeCodeList[checkUser.userId]
-
-      return resultSuccess(codeList)
-    },
-  },
-  {
-    url: '/basic-api/logout',
-    timeout: 200,
-    method: 'get',
-    response: (request: requestParams) => {
-      const token = getRequestToken(request)
-      if (!token) return resultError('Invalid token')
-      const checkUser = createFakeUserList().find(
-        (item) => item.token === token,
-      )
-      if (!checkUser) {
-        return resultError('Invalid token!')
-      }
-      return resultSuccess(undefined, { message: 'Token has been destroyed' })
-    },
-  },
-  {
-    url: '/basic-api/testRetry',
-    statusCode: 405,
-    method: 'get',
-    response: () => {
-      return resultError('Error!')
     },
   },
 ] as MockMethod[]
