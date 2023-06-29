@@ -1,7 +1,11 @@
 <template>
-  <div>成功</div>
+  <base-result
+    title="操作成功"
+    status="success"
+    style="margin-top: 10%"
+  ></base-result>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts" setup></script>
 
 <style scoped></style>

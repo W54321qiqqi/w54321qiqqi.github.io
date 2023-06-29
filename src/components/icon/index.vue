@@ -1,18 +1,15 @@
-<script lang="ts">
-import {
-  createVNode,
-  resolveComponent,
-  defineComponent,
-  computed,
-  CSSProperties,
-} from 'vue'
-import svg from './svg/index.vue'
+<script lang="tsx">
+import { CSSProperties } from 'vue'
+import svgIcon from './svg/index.vue'
 export default defineComponent({
+  components: {
+    svgIcon,
+  },
   name: 'Icon',
   props: {
     name: {
       type: String,
-      required: true,
+      default: '',
     },
     size: {
       type: String,
@@ -26,33 +23,36 @@ export default defineComponent({
   setup(props) {
     const iconStyle = computed((): CSSProperties => {
       const { size, color } = props
-      let s = `${size.replace('px', '')}px`
+      let fontSize = `${size.replace('px', '')}px`
       return {
-        fontSize: s,
+        fontSize,
         color: color,
       }
     })
     if (props.name.indexOf('el-icon-') === 0) {
-      return () =>
-        createVNode(
-          'el-icon',
-          { class: 'icon el-icon', style: iconStyle.value },
-          [createVNode(resolveComponent(props.name))],
-        )
+      return () => (
+        <el-icon
+          size={props.size}
+          color={props.color}
+          class={'base-icon el-icon'}
+        >
+          {h(resolveComponent(props.name))}
+        </el-icon>
+      )
     } else if (props.name.indexOf('local-') === 0) {
-      return () =>
-        createVNode(svg, {
-          name: props.name,
-          size: props.size,
-          color: props.color,
-        })
+      return () => (
+        <svg-icon
+          name={props.name}
+          size={props.size}
+          color={props.color}
+        ></svg-icon>
+      )
     } else {
-      return () =>
-        createVNode('i', {
-          class: [props.name, 'icon'],
-          style: iconStyle.value,
-        })
+      return () => (
+        <i class={`${props.name} 'base-icon'`} style={iconStyle.value}></i>
+      )
     }
   },
 })
 </script>
+<style lang="scss" scoped></style>

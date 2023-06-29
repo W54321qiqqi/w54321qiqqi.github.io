@@ -1,16 +1,11 @@
 <template>
-  <el-main class="layout-main">
-    <router-view></router-view>
-  </el-main>
+  <div class="h-screen w-full">
+    <div class="layout-main">
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped lang="scss">
-@tailwind components;
-@layer components {
-  .layout-main {
-    @apply box-border  w-full pl-[316px] pt-[100px];
-  }
-}
-</style>
+<style scoped lang="scss"></style>

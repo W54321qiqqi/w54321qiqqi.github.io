@@ -33,7 +33,7 @@
                 :model="loginForm"
               >
                 <el-form-item prop="username" label="用户名">
-                  <el-input
+                  <base-input
                     type="text"
                     size="large"
                     placeholder="请输入用户名(admin or test)"
@@ -46,10 +46,10 @@
                     <template #prefix>
                       <Icon name="el-icon-User"></Icon>
                     </template>
-                  </el-input>
+                  </base-input>
                 </el-form-item>
                 <el-form-item type="text" prop="password" label="密码">
-                  <el-input
+                  <base-input
                     type="password"
                     size="large"
                     show-password
@@ -59,11 +59,12 @@
                     clearable
                     autocomplete="on"
                     ref="passwordRef"
+                    @keyup.enter="handleLogin"
                   >
                     <template #prefix>
                       <Icon name="el-icon-Lock"></Icon>
                     </template>
-                  </el-input>
+                  </base-input>
                 </el-form-item>
                 <el-form-item>
                   <el-checkbox
@@ -133,8 +134,8 @@ const passwordRef = ref()
 const loading = ref(false)
 
 const loginForm = reactive({
-  username: 'admin',
-  password: '123456',
+  username: '',
+  password: '',
   remember: 0,
 })
 const loginRules = {

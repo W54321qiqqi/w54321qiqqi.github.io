@@ -1,5 +1,5 @@
 <template>
-  <!-- 多级菜单 -->
+  <!-- 单级菜单 -->
   <template v-if="!item?.children || item?.meta?.hideChildren">
     <el-menu-item
       :index="resolvePath(item.redirect ?? item.path)"
@@ -8,11 +8,12 @@
       @click="handleMenuClick(item)"
     >
       <template #title>
-        <span class="base-menu-title text-hidden">{{ item?.meta?.title }}</span>
+        <Icon :name="item?.meta?.icon" style="margin-right: 6px" />
+        <span class="base-menu-title">{{ item?.meta?.title }}</span>
       </template>
     </el-menu-item>
   </template>
-  <!-- 单级菜单 -->
+  <!-- 多级菜单 -->
   <el-sub-menu
     v-else
     :index="resolvePath(item.path)"
@@ -21,7 +22,8 @@
     :hide-timeout="0"
   >
     <template #title>
-      <span class="base-menu-title text-hidden">{{ item?.meta?.title }}</span>
+      <Icon :name="item?.meta?.icon" style="margin-right: 6px" />
+      <span class="base-menu-title">{{ item?.meta?.title }}</span>
     </template>
     <side-bar-item
       v-for="child in item.children"
@@ -71,4 +73,4 @@ const handleMenuClick = (val: AppRouteType) => {
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

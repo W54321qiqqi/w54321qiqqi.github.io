@@ -50,7 +50,7 @@
           </div>
           <div class="selector-body">
             <el-scrollbar ref="selectorScrollbarRef">
-              <div v-if="renderFontIconNames.length > 0">
+              <div v-if="renderFontIconNames.length">
                 <div
                   class="icon-selector-item"
                   :title="item"
@@ -79,7 +79,7 @@
       >
         <template #prepend>
           <div class="icon-prepend">
-            <icon
+            <Icon
               :key="'icon' + state.iconKey"
               :name="
                 state.prependIcon ? state.prependIcon : state.defaultModelValue
@@ -93,7 +93,7 @@
           </div>
         </template>
         <template #append>
-          <icon @click="onInputRefresh" name="el-icon-RefreshRight" />
+          <Icon @click="onInputRefresh" name="el-icon-RefreshRight" />
         </template>
       </el-input>
     </template>

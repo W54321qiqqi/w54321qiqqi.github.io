@@ -8,7 +8,7 @@ const page: AppRouteType[] = [
     redirect: '/page/403',
     meta: {
       title: '页面',
-      icon: '',
+      icon: 'local-page',
       sort: 2,
       permission: 'admin_page',
     },
@@ -61,6 +61,17 @@ const page: AppRouteType[] = [
         path: 'error',
         name: 'Error',
         component: () => import('/@/views/page/error.vue'),
+        meta: {
+          title: '失败页',
+          sort: 5,
+          permission: 'admin_page_error',
+          icon: '',
+        },
+      },
+      {
+        path: 'table',
+        name: 'Table',
+        component: () => import('/@/views/page/table.vue'),
         meta: {
           title: '失败页',
           sort: 5,

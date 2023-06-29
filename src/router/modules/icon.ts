@@ -1,6 +1,6 @@
 import type { AppRouteType } from '/@/router/types'
 
-const about: AppRouteType[] = [
+const icon: AppRouteType[] = [
   {
     path: '/icon',
     name: 'Icon',
@@ -28,4 +28,4 @@ const about: AppRouteType[] = [
   },
 ]
 
-export default about
+export default icon

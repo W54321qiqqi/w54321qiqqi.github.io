@@ -1,0 +1,44 @@
+@tailwind components;
+
+// 菜单
+.el-menu {
+  .el-sub-menu__title:hover,
+  .el-menu-item:hover {
+    color: var(--el-menu-active-color);
+    .base-icon {
+      color: var(--el-menu-active-color) !important;
+    }
+  }
+  .el-menu-item.is-active {
+    .base-icon {
+      color: var(--el-menu-active-color) !important;
+    }
+  }
+  .el-sub-menu.is-active .el-sub-menu__title {
+    color: var(--el-menu-active-color) !important;
+    .base-icon {
+      color: var(--el-menu-active-color) !important;
+    }
+  }
+}
+
+// icon
+@layer components {
+  .base-icon {
+    @apply inline-flex h-[1em] w-[1em] items-center justify-center overflow-hidden fill-current;
+  }
+}
+// 滚动条
+::-webkit-scrollbar-thumb {
+  background-color: #0003;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}

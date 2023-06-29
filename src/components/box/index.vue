@@ -17,7 +17,7 @@
             placement="right"
             v-if="showHelp"
           >
-            <icon name="local-help" class="ml-3 cursor-pointer" />
+            <Icon name="local-help" class="base-icon ml-3 cursor-pointer" />
           </el-tooltip>
         </div>
         <div class="base-box-extra tr">

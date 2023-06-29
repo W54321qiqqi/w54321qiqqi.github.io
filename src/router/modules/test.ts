@@ -1,6 +1,6 @@
 import type { AppRouteType } from '/@/router/types'
 
-const about: AppRouteType[] = [
+const test: AppRouteType[] = [
   {
     path: '/test',
     name: 'Test',
@@ -8,7 +8,7 @@ const about: AppRouteType[] = [
     redirect: '/test/index',
     meta: {
       title: '测试',
-      icon: '',
+      icon: 'local-click',
       sort: 3,
       hideChildren: true,
       permission: 'admin_test',
@@ -27,5 +27,5 @@ const about: AppRouteType[] = [
     ],
   },
 ]
-
-export default about
+// <Icon name="" color="#000" size="18px" />
+export default test

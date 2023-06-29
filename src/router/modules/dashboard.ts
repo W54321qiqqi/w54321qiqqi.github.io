@@ -8,7 +8,7 @@ const dashboard: AppRouteType[] = [
     redirect: '/dashboard/analysis',
     meta: {
       title: '首页',
-      icon: '',
+      icon: 'local-dashboard',
       sort: 1,
       permission: 'admin_dashboard',
     },
@@ -39,5 +39,4 @@ const dashboard: AppRouteType[] = [
     ],
   },
 ]
-
 export default dashboard

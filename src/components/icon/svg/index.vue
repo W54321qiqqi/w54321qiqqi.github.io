@@ -1,15 +1,11 @@
 <template>
-  <svg
-    class="h-[1em] w-[1em] overflow-hidden fill-current"
-    aria-hidden="true"
-    :style="iconStyle"
-  >
+  <svg class="base-icon" aria-hidden="true" :style="iconStyle">
     <use :href="iconName" />
   </svg>
 </template>
 
 <script setup lang="ts">
-import { computed, CSSProperties } from 'vue'
+import { CSSProperties } from 'vue'
 interface Props {
   name: string
   size: string
@@ -20,9 +16,9 @@ const props = withDefaults(defineProps<Props>(), {
   name: '',
   size: '18px',
   color: '#000000',
+  class: 'base-icon',
 })
-
-const fontSize = `${props.size.replace('px', '')}px`
+const fontSize = unref(computed(() => `${props.size.replace('px', '')}px`))
 const iconName = computed(() => `#${props.name}`)
 const iconStyle = computed((): CSSProperties => {
   return {

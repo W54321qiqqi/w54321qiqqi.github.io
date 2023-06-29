@@ -1,7 +1,18 @@
 <template>
-  <div>404</div>
+  <div>
+    <div class="mt-4 flex justify-center">
+      <icon name="local-404" size="300" />
+    </div>
+    <base-result
+      title="404"
+      sub-title="对不起，你访问的页面不存在"
+      go-home
+      style="margin-top: 5%"
+      status="info"
+    ></base-result>
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts" setup></script>
 
 <style scoped></style>

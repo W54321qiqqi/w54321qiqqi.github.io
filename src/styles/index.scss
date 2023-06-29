@@ -1,16 +1,4 @@
-@import './tailwind';
-@import './component';
-
-::-webkit-scrollbar-thumb {
-  background-color: #0003;
-  border-radius: 10px;
-  transition: all 0.2s ease-in-out;
-}
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
+@use './tailwind';
+@use './component';
+@use './el-override.scss';
+@use './app';
