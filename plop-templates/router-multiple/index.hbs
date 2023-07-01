@@ -1,0 +1,42 @@
+import type { AppRouteType } from '/@/router/types'
+
+const {{ lowerCase name }}: AppRouteType[] = [
+  {
+    path: '/{{ lowerCase name }}',
+    name: '{{pascalCase  name}}',
+    component: () => import('/@/layouts/index.vue'),
+    redirect: '/{{ lowerCase name }}/one',
+    meta: {
+      title: '多级模版',
+      icon: '',
+      sort: 0,
+      permission: '',
+    },
+    children: [
+      {
+        path: 'one',
+        name: '{{ pascalCase  name }}One',
+        component: () => import('/@/views/{{ lowerCase name }}/one.vue'),
+        meta: {
+          title: '',
+          sort: 1,
+          permission: '',
+          icon: '',
+        },
+      },
+      {
+        path: 'two',
+        name: '{{ pascalCase  name }}Two',
+        component: () => import('/@/views/{{ lowerCase name }}/tow.vue'),
+        meta: {
+          title: '',
+          sort: 2,
+          permission: '',
+          icon: '',
+        },
+      },
+    ],
+  },
+]
+
+export default {{ lowerCase name }}

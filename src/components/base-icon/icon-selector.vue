@@ -58,7 +58,7 @@
                   v-for="(item, key) in renderFontIconNames"
                   :key="key"
                 >
-                  <icon :name="item" />
+                  <base-icon :name="item" />
                 </div>
               </div>
             </el-scrollbar>
@@ -79,7 +79,7 @@
       >
         <template #prepend>
           <div class="icon-prepend">
-            <Icon
+            <base-icon
               :key="'icon' + state.iconKey"
               :name="
                 state.prependIcon ? state.prependIcon : state.defaultModelValue
@@ -93,7 +93,7 @@
           </div>
         </template>
         <template #append>
-          <Icon @click="onInputRefresh" name="el-icon-RefreshRight" />
+          <base-icon @click="onInputRefresh" name="el-icon-RefreshRight" />
         </template>
       </el-input>
     </template>

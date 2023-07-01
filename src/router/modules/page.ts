@@ -9,7 +9,7 @@ const page: AppRouteType[] = [
     meta: {
       title: '页面',
       icon: 'local-page',
-      sort: 2,
+      sort: 3,
       permission: 'admin_page',
     },
     children: [
@@ -61,17 +61,6 @@ const page: AppRouteType[] = [
         path: 'error',
         name: 'Error',
         component: () => import('/@/views/page/error.vue'),
-        meta: {
-          title: '失败页',
-          sort: 5,
-          permission: 'admin_page_error',
-          icon: '',
-        },
-      },
-      {
-        path: 'table',
-        name: 'Table',
-        component: () => import('/@/views/page/table.vue'),
         meta: {
           title: '失败页',
           sort: 5,

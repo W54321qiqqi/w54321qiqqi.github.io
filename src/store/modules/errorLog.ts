@@ -1,4 +1,3 @@
-import { defineStore } from 'pinia'
 import { store } from '../index'
 import { ErrorTypeEnum } from '/@/enums/httpEnum'
 import dayjs from 'dayjs'

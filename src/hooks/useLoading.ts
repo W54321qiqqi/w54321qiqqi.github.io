@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 import { LoadingEnum } from '/@/enums/loadingEnum'
-import loading from '/@/components/loading/index.vue'
+import baseLoading from '/@/components/base-loading/index.vue'
 
 type LoadingType = {
   text?: string
@@ -12,7 +12,7 @@ type LoadingType = {
 }
 
 export function useLoading(config: LoadingType = {}) {
-  const loadingConstructor = createApp(loading, { ...config })
+  const loadingConstructor = createApp(baseLoading, { ...config })
   let instance: any = null
   let startTime: number = 0
   let endTime: number = 0

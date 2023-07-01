@@ -5,7 +5,7 @@ export default defineComponent({
   components: {
     svgIcon,
   },
-  name: 'Icon',
+  name: 'BaseIcon',
   props: {
     name: {
       type: String,

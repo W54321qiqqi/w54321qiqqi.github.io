@@ -1,11 +1,13 @@
 <template>
-  <div>
-    <el-space>
-      嵌套菜单1-1-1
-      <el-rate v-model="value" class="ml10" />
-    </el-space>
-    <base-input v-model="inputValue" />
-  </div>
+  <base-page>
+    <base-box>
+      <el-space>
+        嵌套菜单1-1-1
+        <el-rate v-model="value" class="ml10" />
+      </el-space>
+      <base-input v-model="inputValue" />
+    </base-box>
+  </base-page>
 </template>
 
 <script lang="ts" setup>

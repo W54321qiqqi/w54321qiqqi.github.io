@@ -1,6 +1,6 @@
 import type { App } from 'vue'
 import * as elIcons from '@element-plus/icons-vue'
-import Icon from '/@/components/icon/index.vue'
+// import baseIcon from '/@/components/base-icon/index.vue'
 
 export function registerIcons(app: App) {
   /*
@@ -8,7 +8,7 @@ export function registerIcons(app: App) {
    * 使用方式: <Icon name="name" size="size" color="color" />
    * 详见<待完善>
    */
-  app.component('Icon', Icon)
+  // app.component('Icon', Icon)
 
   /*
    * 全局注册element Plus的icon

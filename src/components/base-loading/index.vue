@@ -1,8 +1,12 @@
 <script lang="tsx">
 import { loadingMap, LoadingEnum } from '/@/enums/loadingEnum'
-import Icon from '/@/components/icon/index.vue'
+import baseIcon from '/@/components/base-icon/index.vue'
 import type { Component, PropType } from 'vue'
 export default defineComponent({
+  name: 'BaseLoading',
+  components: {
+    baseIcon,
+  },
   props: {
     text: {
       type: String,
@@ -32,7 +36,11 @@ export default defineComponent({
   setup(props) {
     const renderBaseLoading = () => {
       return (
-        <Icon name="local-loading" color={props.textColor} class="is-loading" />
+        <base-icon
+          name="local-loading"
+          color={props.textColor}
+          class="is-loading"
+        />
       )
     }
 

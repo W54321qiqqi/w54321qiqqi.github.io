@@ -13,6 +13,9 @@
 </template>
 
 <script lang="ts" setup>
+defineOptions({
+  name: 'BaseResult',
+})
 const props = withDefaults(
   defineProps<{
     status?: 'success' | 'warning' | 'info' | 'error'

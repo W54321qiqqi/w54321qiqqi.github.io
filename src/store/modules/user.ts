@@ -80,9 +80,9 @@ export const useUserStore = defineStore({
       resetRouter()
       let params: any = {}
       if (role === 'admin') {
-        params = { username: 'admin', password: 123456 }
+        params = { username: 'admin', password: '123456' }
       } else {
-        params = { username: 'test', password: 123456 }
+        params = { username: 'test', password: '123456' }
       }
       await this.login(params)
       const usePermission = usePermissionStore()

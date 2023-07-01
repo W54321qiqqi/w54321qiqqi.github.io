@@ -32,6 +32,9 @@
 </template>
 
 <script lang="ts" setup>
+defineOptions({
+  name: 'BaseSkeleton',
+})
 const props = defineProps({
   loading: {
     type: Boolean,

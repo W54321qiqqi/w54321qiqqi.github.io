@@ -1,9 +1,9 @@
 <template>
   <div class="icons-wrapper">
-    <box title="图标选择器" showHelp helpText="选择图标可复制代码">
+    <base-box title="图标选择器" showHelp helpText="选择图标可复制代码">
       <div class="w-[300px]"><icon-selector @change="selectIcon" /></div>
-    </box>
-    <box title="Element Puls 图标" showHelp helpText="点击图标可复制代码">
+    </base-box>
+    <base-box title="Element Puls 图标" showHelp helpText="点击图标可复制代码">
       <div class="icon-list">
         <div
           class="icon-item"
@@ -12,11 +12,11 @@
           @click="selectIcon(item)"
           :title="item"
         >
-          <Icon :name="item" />
+          <base-icon :name="item" />
         </div>
       </div>
-    </box>
-    <box
+    </base-box>
+    <base-box
       title="本地图标:/src/assets/icons中的.svg"
       showHelp
       helpText="点击图标可复制代码"
@@ -28,11 +28,11 @@
           :key="key"
           @click="selectIcon(item)"
         >
-          <Icon :name="item" />
+          <base-icon :name="item" />
         </div>
       </div>
-    </box>
-    <box title="阿里 Iconfont 图标" showHelp helpText="点击图标可复制代码">
+    </base-box>
+    <base-box title="阿里 Iconfont 图标" showHelp helpText="点击图标可复制代码">
       <div class="icon-list">
         <div
           class="icon-item"
@@ -41,11 +41,11 @@
           @click="selectIcon(item)"
           :title="item"
         >
-          <Icon :name="item" />
+          <base-icon :name="item" />
         </div>
       </div>
-    </box>
-    <box title="Font Awesome 图标" showHelp helpText="点击图标可复制代码">
+    </base-box>
+    <base-box title="Font Awesome 图标" showHelp helpText="点击图标可复制代码">
       <div class="icon-list">
         <div
           class="icon-item"
@@ -54,15 +54,15 @@
           @click="selectIcon(item)"
           :title="item"
         >
-          <Icon :name="item" />
+          <base-icon :name="item" />
         </div>
       </div>
-    </box>
+    </base-box>
   </div>
 </template>
 
 <script setup lang="ts">
-import iconSelector from '/@/components/icon/icon-selector.vue'
+import iconSelector from '/@/components/base-icon/icon-selector.vue'
 import {
   getAwesomeIconfontNames,
   getIconfontNames,

@@ -1,10 +1,10 @@
-import pulseSpin from '/@/components/loading/spin/pulseSpin.vue'
-import rectSpin from '/@/components/loading/spin/rectSpin.vue'
-import planeSpin from '/@/components/loading/spin/planeSpin.vue'
-import cubeSpin from '/@/components/loading/spin/cubeSpin.vue'
-import preloaderSpin from '/@/components/loading/spin/preloaderSpin.vue'
-import chaseSpin from '/@/components/loading/spin/chaseSpin.vue'
-import dotSpin from '/@/components/loading/spin/dotSpin.vue'
+import pulseSpin from '/@/components/base-loading/spin/pulseSpin.vue'
+import rectSpin from '/@/components/base-loading/spin/rectSpin.vue'
+import planeSpin from '/@/components/base-loading/spin/planeSpin.vue'
+import cubeSpin from '/@/components/base-loading/spin/cubeSpin.vue'
+import preloaderSpin from '/@/components/base-loading/spin/preloaderSpin.vue'
+import chaseSpin from '/@/components/base-loading/spin/chaseSpin.vue'
+import dotSpin from '/@/components/base-loading/spin/dotSpin.vue'
 
 export enum LoadingEnum {
   PULSE = 'pulse',

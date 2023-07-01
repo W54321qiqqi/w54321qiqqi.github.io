@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <div>工作台</div>
-  </div>
+  <base-page><div>工作台</div></base-page>
 </template>
 
 <script setup lang="ts"></script>

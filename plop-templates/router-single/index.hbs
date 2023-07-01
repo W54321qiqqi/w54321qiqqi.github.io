@@ -1,0 +1,32 @@
+import type { AppRouteType } from "/@/router/types";
+
+const {{ lowerCase name }}: AppRouteType[] = [
+    {
+        path: "/{{ lowerCase name }}",
+        name: "{{pascalCase  name}}",
+        component: () => import("/@/layouts/index.vue"),
+        redirect: "/{{ lowerCase name }}/index",
+        meta: {
+            title: "模版",
+            icon: "",
+            sort: 0,
+            permission:"",
+            hideChildren: true
+        },
+        children: [
+            {
+                path: "index",
+                name: "{{ pascalCase  name }}Index",
+                component: () => import("/@/views/{{ lowerCase name }}/index.vue"),
+                meta: {
+                    title: "模版",
+                    sort: 0,
+                    permission:"",
+                    icon: ""
+                }
+            }
+        ]
+    }
+];
+
+export default {{ lowerCase name }};

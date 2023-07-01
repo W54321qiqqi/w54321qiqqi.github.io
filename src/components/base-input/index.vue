@@ -33,7 +33,9 @@
 <script lang="ts" setup>
 import inputProps from './props'
 import { useVModel } from '@vueuse/core'
-
+defineOptions({
+  name: 'BaseInput',
+})
 const baseInputRef = ref()
 
 const props = defineProps(inputProps)

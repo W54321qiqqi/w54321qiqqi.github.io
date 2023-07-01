@@ -2,10 +2,10 @@ import type { AppRouteType } from '/@/router/types'
 
 const comps: AppRouteType[] = [
   {
-    path: '/components',
-    name: 'ComponentsPage',
+    path: '/comps',
+    name: 'Comps',
     component: () => import('/@/layouts/index.vue'),
-    redirect: '/components/icon',
+    redirect: '/comps/icon',
     meta: {
       title: '组件',
       icon: 'local-comp',

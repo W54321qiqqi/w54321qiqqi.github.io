@@ -13,6 +13,9 @@
 <script lang="ts" setup>
 import { useUserStoreWithOut } from '/@/store/modules/user'
 import { omit } from '/@/utils/common'
+defineOptions({
+  name: 'BaseButton',
+})
 const props = defineProps({
   type: {
     type: String,

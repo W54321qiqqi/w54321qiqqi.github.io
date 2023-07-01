@@ -7,6 +7,9 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({
+  name: 'BaseBacktop',
+})
 const props = withDefaults(
   defineProps<{
     bottom?: number

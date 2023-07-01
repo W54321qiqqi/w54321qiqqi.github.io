@@ -1,0 +1,14 @@
+import { store } from '../index'
+export const use{{ properCase name }} = defineStore({
+  // 唯一ID
+  id: '{{ camelCase name }}',
+
+  state: () => ({}),
+  getters: {},
+  actions: {},
+})
+
+// 便于外部使用
+export const use{{ properCase name }}StoreWithOut = () => {
+  return use{{ properCase name }} (store)
+}

@@ -4,4 +4,5 @@
 /node_modules/**
 **/*.svg
 **/*.sh
+**/*.hbs
 /public/*

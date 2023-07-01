@@ -17,7 +17,10 @@
             placement="right"
             v-if="showHelp"
           >
-            <Icon name="local-help" class="base-icon ml-3 cursor-pointer" />
+            <base-icon
+              name="local-help"
+              class="base-icon ml-3 cursor-pointer"
+            />
           </el-tooltip>
         </div>
         <div class="base-box-extra tr">
@@ -29,9 +32,9 @@
     </div>
     <div class="base-box-content">
       <el-scrollbar :style="getStyle">
-        <skeleton :loading="loading" is-box>
+        <base-skeleton :loading="loading" is-box>
           <slot></slot>
-        </skeleton>
+        </base-skeleton>
       </el-scrollbar>
     </div>
   </div>
@@ -39,7 +42,9 @@
 
 <script lang="ts" setup>
 import { isString } from '/@/utils/is'
-
+defineOptions({
+  name: 'BaseBox',
+})
 const props = defineProps({
   title: {
     type: String,

@@ -1,9 +1,9 @@
 <template>
-  <div class="icons-wrapper">
-    <box title="图标选择器" showHelp helpText="选择图标可复制代码">
+  <base-page>
+    <base-box title="图标选择器" showHelp helpText="选择图标可复制代码">
       <div class="w-[300px]"><icon-selector @change="selectIcon" /></div>
-    </box>
-    <box title="Element Puls 图标" showHelp helpText="点击图标可复制代码">
+    </base-box>
+    <base-box title="Element Puls 图标" showHelp helpText="点击图标可复制代码">
       <div class="icon-list">
         <div
           class="icon-item"
@@ -12,11 +12,11 @@
           @click="selectIcon(item)"
           :title="item"
         >
-          <Icon :name="item" />
+          <base-icon :name="item" />
         </div>
       </div>
-    </box>
-    <box
+    </base-box>
+    <base-box
       title="本地图标:/src/assets/icons中的.svg"
       showHelp
       helpText="点击图标可复制代码"
@@ -28,11 +28,11 @@
           :key="key"
           @click="selectIcon(item)"
         >
-          <Icon :name="item" />
+          <base-icon :name="item" />
         </div>
       </div>
-    </box>
-    <box title="阿里 Iconfont 图标" showHelp helpText="点击图标可复制代码">
+    </base-box>
+    <base-box title="阿里 Iconfont 图标" showHelp helpText="点击图标可复制代码">
       <div class="icon-list">
         <div
           class="icon-item"
@@ -41,11 +41,11 @@
           @click="selectIcon(item)"
           :title="item"
         >
-          <Icon :name="item" />
+          <base-icon :name="item" />
         </div>
       </div>
-    </box>
-    <box title="Font Awesome 图标" showHelp helpText="点击图标可复制代码">
+    </base-box>
+    <base-box title="Font Awesome 图标" showHelp helpText="点击图标可复制代码">
       <div class="icon-list">
         <div
           class="icon-item"
@@ -54,15 +54,73 @@
           @click="selectIcon(item)"
           :title="item"
         >
-          <Icon :name="item" />
+          <base-icon :name="item" />
         </div>
       </div>
-    </box>
-  </div>
+    </base-box>
+    <base-box title="图标选择器" showHelp helpText="选择图标可复制代码">
+      <div class="w-[300px]"><icon-selector @change="selectIcon" /></div>
+    </base-box>
+    <base-box title="Element Puls 图标" showHelp helpText="点击图标可复制代码">
+      <div class="icon-list">
+        <div
+          class="icon-item"
+          v-for="(item, index) in state.eleIcon"
+          :key="index"
+          @click="selectIcon(item)"
+          :title="item"
+        >
+          <base-icon :name="item" />
+        </div>
+      </div>
+    </base-box>
+    <base-box
+      title="本地图标:/src/assets/icons中的.svg"
+      showHelp
+      helpText="点击图标可复制代码"
+    >
+      <div class="icon-list">
+        <div
+          class="icon-item"
+          v-for="(item, key) in state.localIcon"
+          :key="key"
+          @click="selectIcon(item)"
+        >
+          <base-icon :name="item" />
+        </div>
+      </div>
+    </base-box>
+    <base-box title="阿里 Iconfont 图标" showHelp helpText="点击图标可复制代码">
+      <div class="icon-list">
+        <div
+          class="icon-item"
+          v-for="(item, key) in state.iconfontIcon"
+          :key="key"
+          @click="selectIcon(item)"
+          :title="item"
+        >
+          <base-icon :name="item" />
+        </div>
+      </div>
+    </base-box>
+    <base-box title="Font Awesome 图标" showHelp helpText="点击图标可复制代码">
+      <div class="icon-list">
+        <div
+          class="icon-item"
+          v-for="(item, key) in state.awesomeIcon"
+          :key="key"
+          @click="selectIcon(item)"
+          :title="item"
+        >
+          <base-icon :name="item" />
+        </div>
+      </div>
+    </base-box>
+  </base-page>
 </template>
 
 <script setup lang="ts">
-import iconSelector from '/@/components/icon/icon-selector.vue'
+import iconSelector from '/@/components/base-icon/icon-selector.vue'
 import {
   getAwesomeIconfontNames,
   getIconfontNames,
@@ -98,7 +156,7 @@ const selectIcon = (iconName: string) => {
   copyValue(iconName)
 }
 const copyValue = (value: string) => {
-  const dealValue = `<Icon name="${value}" color="#000" size="18px" />`
+  const dealValue = `<base-icon name="${value}" color="#000" size="18px" />`
   navigator.clipboard.writeText(dealValue).then(
     () => {
       ElMessage.success(`${dealValue}`)

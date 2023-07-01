@@ -8,7 +8,7 @@
       @click="handleMenuClick(item)"
     >
       <template #title>
-        <Icon :name="item?.meta?.icon" style="margin-right: 6px" />
+        <base-icon :name="item?.meta?.icon" style="margin-right: 6px" />
         <span class="base-menu-title">{{ item?.meta?.title }}</span>
       </template>
     </el-menu-item>
@@ -22,7 +22,7 @@
     :hide-timeout="0"
   >
     <template #title>
-      <Icon :name="item?.meta?.icon" style="margin-right: 6px" />
+      <base-icon :name="item?.meta?.icon" style="margin-right: 6px" />
       <span class="base-menu-title">{{ item?.meta?.title }}</span>
     </template>
     <side-bar-item
