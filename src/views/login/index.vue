@@ -11,7 +11,9 @@
           class="flex h-14 items-center border-b bg-white shadow-lg shadow-slate-400"
         >
           <img :src="loginPic.logo" class="ml-5 w-8" />
-          <h1 class="m-0 mr-5 align-middle">V3 Template</h1>
+          <h1 class="ml-2 align-middle font-bold text-[#4468f3]">
+            V3 Template
+          </h1>
         </div>
         <div class="box-border flex h-[500px] w-full">
           <!-- 登录框左侧 -->
