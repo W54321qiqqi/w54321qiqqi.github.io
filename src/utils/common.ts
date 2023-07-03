@@ -1,15 +1,8 @@
 import type { App } from 'vue'
 import * as elIcons from '@element-plus/icons-vue'
-// import baseIcon from '/@/components/base-icon/index.vue'
+import { isObject } from './is'
 
 export function registerIcons(app: App) {
-  /*
-   * 全局注册 Icon
-   * 使用方式: <Icon name="name" size="size" color="color" />
-   * 详见<待完善>
-   */
-  // app.component('Icon', Icon)
-
   /*
    * 全局注册element Plus的icon
    */
@@ -73,4 +66,20 @@ export function omit<T extends Record<string, any>, P extends keyof T>(
     if (obj[key] !== undefined) newObj[key] = obj[key]
   })
   return newObj
+}
+
+/**
+ * 深度合并
+ * @param {*} src
+ * @param {*} target
+ * @returns {*}
+ */
+export function deepMerge<T = any>(src: any = {}, target: any = {}): T {
+  let key: string
+  for (key in target) {
+    src[key] = isObject(target[key])
+      ? deepMerge(src[key], target[key])
+      : (src[key] = target[key])
+  }
+  return src
 }

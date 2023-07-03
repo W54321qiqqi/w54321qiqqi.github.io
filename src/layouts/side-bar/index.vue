@@ -1,11 +1,14 @@
 <template>
-  <el-aside width="300px" class="layout-side">
-    <el-scrollbar>
+  <el-aside :width="`${sideBarWidth}px`" class="layout-side">
+    <el-scrollbar class="layout-shadow-rounded">
       <el-menu
         :default-active="$route.path"
+        :mode="getMode"
+        :collapse="getCollapse"
+        :collapse-transition="false"
         unique-opened
         router
-        class="layout-menu layout-shadow-rounded"
+        class="layout-menu"
       >
         <side-bar-item
           v-for="route in permissionStore.route"
@@ -19,20 +22,14 @@
 
 <script lang="ts" setup>
 import SideBarItem from './side-bar-item.vue'
+import { useMenuSetting } from '../hooks/useMenuSetting'
 import { usePermissionStoreWithOut } from '/@/store/modules/permission'
 const permissionStore = usePermissionStoreWithOut()
+const { getCollapse, getMode, getSideWidth, getSideCollapsed } =
+  useMenuSetting()
+const sideBarWidth = computed(() => {
+  return unref(getCollapse) ? unref(getSideCollapsed) : unref(getSideWidth)
+})
 </script>
 
-<style lang="scss" scoped>
-@tailwind components;
-
-@layer components {
-  .layout-side {
-    @apply fixed left-0 top-0  box-border h-screen;
-  }
-
-  .layout-menu {
-    @apply ml-4 mt-[66px] h-[calc(100vh-82px)];
-  }
-}
-</style>
+<style lang="scss"></style>

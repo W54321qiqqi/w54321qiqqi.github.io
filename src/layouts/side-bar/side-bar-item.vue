@@ -9,7 +9,7 @@
     >
       <template #title>
         <base-icon :name="item?.meta?.icon" style="margin-right: 6px" />
-        <span class="base-menu-title">{{ item?.meta?.title }}</span>
+        <span class="text-hidden">{{ item?.meta?.title }}</span>
       </template>
     </el-menu-item>
   </template>
@@ -23,7 +23,7 @@
   >
     <template #title>
       <base-icon :name="item?.meta?.icon" style="margin-right: 6px" />
-      <span class="base-menu-title">{{ item?.meta?.title }}</span>
+      <span class="text-hidden">{{ item?.meta?.title }}</span>
     </template>
     <side-bar-item
       v-for="child in item.children"

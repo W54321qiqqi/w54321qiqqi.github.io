@@ -1,33 +1,51 @@
 @tailwind components;
-
-// 菜单
-.el-menu {
-  .el-sub-menu__title:hover,
-  .el-menu-item:hover {
-    color: var(--el-menu-active-color);
-    .base-icon {
-      color: var(--el-menu-active-color) !important;
-    }
-  }
-  .el-menu-item.is-active {
-    .base-icon {
-      color: var(--el-menu-active-color) !important;
-    }
-  }
-  .el-sub-menu.is-active .el-sub-menu__title {
-    color: var(--el-menu-active-color) !important;
-    .base-icon {
-      color: var(--el-menu-active-color) !important;
-    }
-  }
-}
-
-// icon
 @layer components {
+  // 布局圆角阴影
+  .layout-shadow-rounded {
+    @apply rounded bg-white/75 shadow-[0_0_12px_rgba(0,0,0,.12)];
+  }
+  // 布局过滤
+  .layout-filter {
+    @apply bg-radial bg-4px backdrop-blur-sm;
+  }
+  // 头部固定
+  .layout-header-fixed {
+    @apply fixed left-0 right-0 top-0 z-10  flex h-[50px] items-center border-[1px] border-slate-200 bg-white/75 leading-[50px];
+  }
+  // 布局tag容器
+  .layout-tag-wrapper {
+    @apply fixed right-0 top-[50px] z-10 h-[34px]  border-r;
+  }
+  // 主体布局
+  .layout-main {
+    @apply box-border pb-4  pr-4 pt-[100px];
+  }
+  // 左侧布局
+  .layout-side {
+    @apply fixed left-0 top-0 box-border h-screen  pt-[50px] transition-all;
+    .el-scrollbar {
+      @apply bg-white;
+    }
+  }
+  // 菜单布局
+  .layout-menu {
+    @apply my-4;
+  }
+  // logo样式
+  .logo-link {
+    @apply flex h-full  cursor-pointer items-center px-4 transition-all hover:bg-slate-100;
+  }
+  // 字体隐藏
+  .text-hidden {
+    @apply overflow-hidden
+    text-ellipsis whitespace-nowrap;
+  }
+  // icon
   .base-icon {
     @apply inline-flex h-[1em] w-[1em] items-center justify-center overflow-hidden fill-current;
   }
 }
+
 // 滚动条
 ::-webkit-scrollbar-thumb {
   background-color: #0003;

@@ -3,23 +3,4 @@
   #app {
     @apply h-full bg-[#f5f5f5];
   }
-  // 布局圆角阴影
-  .layout-shadow-rounded {
-    @apply rounded bg-white/75 shadow-[0_0_12px_rgba(0,0,0,.12)];
-  }
-  // 布局过滤
-  .layout-filter {
-    @apply bg-radial bg-4px backdrop-blur-sm;
-  }
-  // 头部固定
-  .layout-header-fixed {
-    @apply fixed left-0 right-0 top-0 z-10  h-[50px] border-[1px] border-slate-200 bg-white/75 leading-[50px];
-  }
-  // 布局tag容器
-  .layout-tag-wrapper {
-    @apply fixed left-[316px] right-0 top-[50px] z-10  h-[34px];
-  }
-  .layout-main {
-    @apply box-border  w-full pb-[16px] pl-[316px] pr-[20px] pt-[100px];
-  }
 }

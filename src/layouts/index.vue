@@ -1,6 +1,7 @@
 <template>
   <el-container>
     <layout-header />
+    <Tag />
     <side-bar></side-bar>
     <el-container>
       <layout-main />
@@ -13,6 +14,7 @@
 import sideBar from './side-bar/index.vue'
 import layoutHeader from './header/index.vue'
 import layoutMain from './main/index.vue'
+import Tag from './tag/index.vue'
 </script>
 
 <style scoped lang="scss"></style>

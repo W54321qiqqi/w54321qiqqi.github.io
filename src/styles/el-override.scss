@@ -1,5 +1,29 @@
 html {
-  // .el-header {
-  //   --el-header-height: auto;
-  // }
+  .el-menu {
+    border: none;
+  }
+  .el-sub-menu__title {
+    padding-right: 0;
+  }
+  // 菜单
+  .el-menu {
+    .el-sub-menu__title:hover,
+    .el-menu-item:hover {
+      color: var(--el-menu-active-color);
+      .base-icon {
+        color: var(--el-menu-active-color) !important;
+      }
+    }
+    .el-menu-item.is-active {
+      .base-icon {
+        color: var(--el-menu-active-color) !important;
+      }
+    }
+    .el-sub-menu.is-active .el-sub-menu__title {
+      color: var(--el-menu-active-color) !important;
+      .base-icon {
+        color: var(--el-menu-active-color) !important;
+      }
+    }
+  }
 }
