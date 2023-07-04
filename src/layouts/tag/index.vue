@@ -1,27 +1,34 @@
 <template>
-  <div
-    class="layout-tag-wrapper layout-filter bg-white/75 shadow-[0_0_12px_rgba(0,0,0,.12)]"
-  ></div>
+  <tag-scroll>
+    <template #item>
+      <div v-for="item in getTagList" :key="item.fullPath">
+        <tag-item
+          :tag="item"
+          :ref="setTagWrapperRef"
+          :closed="getTagList.length !== 1"
+          @close="closeTag"
+        ></tag-item>
+      </div>
+    </template>
+  </tag-scroll>
 </template>
 <script setup lang="ts">
-import { useMenuSetting } from '../hooks/useMenuSetting'
-const { getSideWidth, getCollapse, getSideCollapsed } = useMenuSetting()
-const paddingLeft = computed(() => {
-  const padding = 16
-  const sideWidth = unref(getCollapse)
-    ? unref(getSideCollapsed)
-    : unref(getSideWidth)
-  return `${(sideWidth as number) + padding}px`
-})
+import tagScroll from './tag-scroll.vue'
+import tagItem from './tag-item.vue'
+import { useTagViewSetting } from '../hooks/useTagViewSetting'
+const route = useRoute()
+const setTagWrapperRef = ref()
+const { getTagList, closeTag, addTag } = useTagViewSetting()
+watch(
+  () => route.path,
+  () => {
+    addTag(route)
+  },
+  {
+    deep: true,
+    immediate: true,
+  },
+)
 </script>
 
-<style scoped lang="scss">
-.layout-tag-wrapper {
-  width: calc(100% - v-bind(paddingLeft));
-}
-@media (max-width: 992px) {
-  .layout-tag-wrapper {
-    width: 100%;
-  }
-}
-</style>
+<style scoped lang="scss"></style>

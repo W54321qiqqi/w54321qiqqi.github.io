@@ -1,5 +1,5 @@
 <template>
-  <el-breadcrumb class="breadcrumb-wrapper">
+  <el-breadcrumb class="breadcrumb py-2">
     <el-breadcrumb-item v-for="(item, index) in breadList" :key="item.path">
       <div v-if="index === breadList.length - 1">{{ item.meta.title }}</div>
       <router-link v-else :to="item.path">{{ item?.meta?.title }}</router-link>
@@ -30,17 +30,4 @@ watch(
 )
 </script>
 
-<style lang="scss" scoped>
-.breadcrumb-wrapper {
-  padding: 0 8px;
-  .el-breadcrumb__item {
-    align-items: flex-end !important;
-    height: 22px !important;
-  }
-}
-@media (max-width: 992px) {
-  .breadcrumb-wrapper {
-    display: none;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

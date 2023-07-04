@@ -53,7 +53,7 @@ export const svgBuildPlugin = (path: string, perfix = 'local') => {
   idPerfix = perfix
   const res = findSvgFile(path)
   return {
-    name: 'svg-transform',
+    name: 'vite:svg',
     transformIndexHtml(html: string) {
       /* eslint-disable */
       return html.replace(

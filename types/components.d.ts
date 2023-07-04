@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     BaseBacktop: typeof import('./../src/components/base-backtop/index.vue')['default']
     BaseBox: typeof import('./../src/components/base-box/index.vue')['default']
+    BaseBreadcrumb: typeof import('./../src/components/base-breadcrumb/index.vue')['default']
     BaseButton: typeof import('./../src/components/base-button/index.vue')['default']
     BaseIcon: typeof import('./../src/components/base-icon/index.vue')['default']
     BaseInput: typeof import('./../src/components/base-input/index.vue')['default']
@@ -29,8 +30,6 @@ declare module 'vue' {
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDivider: typeof import('element-plus/es')['ElDivider']
-    ElDropdown: typeof import('element-plus/es')['ElDropdown']
-    ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElIcon: typeof import('element-plus/es')['ElIcon']

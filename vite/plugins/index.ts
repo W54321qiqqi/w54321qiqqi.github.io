@@ -1,4 +1,4 @@
-import type { PluginOption } from 'vite'
+import type { PluginOption, Plugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from './autoImportPlugin'
@@ -15,6 +15,7 @@ export default function createVitePlugins(
   isBuild = false,
 ) {
   const { VITE_BUILD_IMAGEMIN, VITE_BUILD_REPORT } = viteEnv
+  const isReport = VITE_BUILD_REPORT === 'true'
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     vue(),
     vueJsx({}),
@@ -31,8 +32,12 @@ export default function createVitePlugins(
   // gizp,br打包压缩
   if (isBuild) {
     vitePlugins.push(createCompression(viteEnv))
-    VITE_BUILD_IMAGEMIN === 'true' && createImagemin()
-    VITE_BUILD_REPORT === 'true' && createVisualizer()
+    VITE_BUILD_IMAGEMIN === 'true' && vitePlugins.push(createImagemin())
+  }
+
+  if (isReport) {
+    // 打包分析
+    vitePlugins.push(createVisualizer() as Plugin)
   }
   return vitePlugins
 }
