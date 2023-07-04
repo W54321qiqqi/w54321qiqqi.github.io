@@ -28,7 +28,7 @@ export const useAppStore = defineStore({
       mode: 'vertical',
       collapse: false,
       sideWidth: 240,
-      sideCollapsed: 100,
+      sideCollapsed: 64,
     },
     headerConfig: {
       pageSize: 'default',

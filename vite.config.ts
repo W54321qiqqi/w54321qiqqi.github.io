@@ -1,7 +1,7 @@
 import { resolve } from 'path'
 import type { UserConfig, ConfigEnv } from 'vite'
 import { loadEnv } from 'vite'
-import createVitePlugins from '/@/vite/plugins'
+import createVitePlugins from './vite/plugins'
 const pathResolve = (dir: string): any => {
   return resolve(__dirname, '.', dir)
 }
@@ -14,8 +14,22 @@ const viteConfig = ({ mode, command }: ConfigEnv): UserConfig => {
   }
   return {
     plugins: createVitePlugins(env, command === 'build'),
-    // plugins: createVitePlugins(env, command === 'build'),
     resolve: { alias },
+    server: {
+      port: 9000,
+    },
+    build: {
+      reportCompressedSize: false,
+      chunkSizeWarningLimit: 2000,
+      rollupOptions: {
+        // 静态资源分类打包
+        output: {
+          chunkFileNames: 'static/js/[name]-[hash].js',
+          entryFileNames: 'static/js/[name]-[hash].js',
+          assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+        },
+      },
+    },
   }
 }
 

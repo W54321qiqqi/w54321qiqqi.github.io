@@ -1,3 +1,5 @@
+// 打包后的署名
+import './utils/systemCopyright'
 import { createApp, App } from 'vue'
 import appRoot from './App.vue'
 import { registerIcons } from '/@/utils/common'
@@ -6,7 +8,6 @@ import '/@/styles/index.scss'
 import { setupRouterGuard } from '/@/router/guard'
 import { setupPinia } from '/@/store'
 import { setupLoadingDirective, setupPermissionDirective } from './directive'
-
 function start() {
   const app: App = createApp(appRoot)
   registerIcons(app) // icons
@@ -14,6 +15,7 @@ function start() {
   setupPinia(app)
   // 注册路由守卫
   setupRouterGuard(router)
+  // 注册自定义指令
   setupDirective(app)
   app.use(router)
   app.mount('#app')

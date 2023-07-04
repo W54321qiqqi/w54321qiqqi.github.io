@@ -7,8 +7,6 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Aaaa: typeof import('./../src/components/Aaaa/index.vue')['default']
-    BaseAaaa: typeof import('./../src/components/base-aaaa/index.vue')['default']
     BaseBacktop: typeof import('./../src/components/base-backtop/index.vue')['default']
     BaseBox: typeof import('./../src/components/base-box/index.vue')['default']
     BaseButton: typeof import('./../src/components/base-button/index.vue')['default']
@@ -33,10 +31,8 @@ declare module 'vue' {
     ElDivider: typeof import('element-plus/es')['ElDivider']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
-    ElHeader: typeof import('element-plus/es')['ElHeader']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
-    ElMain: typeof import('element-plus/es')['ElMain']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElPopover: typeof import('element-plus/es')['ElPopover']
@@ -50,7 +46,6 @@ declare module 'vue' {
     ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
     ElSpace: typeof import('element-plus/es')['ElSpace']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
-    ElTag: typeof import('element-plus/es')['ElTag']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     IconSelector: typeof import('./../src/components/base-icon/icon-selector.vue')['default']
     PlaneSpin: typeof import('./../src/components/base-loading/spin/planeSpin.vue')['default']
