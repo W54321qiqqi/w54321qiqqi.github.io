@@ -19,4 +19,9 @@ const paddingLeft = computed(() => {
 .layout-tag-wrapper {
   width: calc(100% - v-bind(paddingLeft));
 }
+@media (max-width: 992px) {
+  .layout-tag-wrapper {
+    width: 100%;
+  }
+}
 </style>

@@ -32,4 +32,10 @@ const sideBarWidth = computed(() => {
 })
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+@media (max-width: 992px) {
+  .layout-side {
+    display: none;
+  }
+}
+</style>

@@ -38,7 +38,6 @@ watch(
     height: 22px !important;
   }
 }
-
 @media (max-width: 992px) {
   .breadcrumb-wrapper {
     display: none;

@@ -28,4 +28,10 @@ const paddingLeft = computed(() => {
 .layout-main {
   padding-left: v-bind(paddingLeft);
 }
+
+@media (max-width: 992px) {
+  .layout-main {
+    padding-left: 16px;
+  }
+}
 </style>
