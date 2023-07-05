@@ -82,7 +82,9 @@ const scrollBodyRef = ref()
 const tagBodyLeft = ref(0)
 
 const showArrow = ref(false)
+// if(unref(getTagFullscreen)){
 
+// }
 const initArrow = computed(() => {
   return unref(showArrow) && props.iconScroll
 })
@@ -193,7 +195,6 @@ const handleMouseWheel = (e: any) => {
   if (!unref(showArrow) || !props.wheelScroll) return
   handleScroll(e.wheelDelta / 2)
 }
-
 defineExpose({
   moveToTag,
   setBodyLeft,

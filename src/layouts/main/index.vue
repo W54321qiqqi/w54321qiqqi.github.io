@@ -22,7 +22,8 @@ const paddingLeft = computed(() => {
   const sideWidth = unref(getCollapse)
     ? unref(getSideCollapsed)
     : unref(getSideWidth)
-  return `${(sideWidth as number) + padding}px`
+  const res = `${(sideWidth as number) + padding}px`
+  return res
 })
 </script>
 

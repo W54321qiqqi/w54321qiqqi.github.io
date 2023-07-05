@@ -18,14 +18,10 @@ export const useTagViewSetting = () => {
 
   const getCacheTagList = computed(() => tagStore.cacheTagList)
 
-  const getTagFullscreen = computed(() => tagStore.fullscreen)
-
   const addTag = (route: RouteLocationNormalizedLoaded) => {
     tagStore.addTag(route)
   }
-  const toggleFullscreen = () => {
-    tagStore.toggleFullscreen()
-  }
+
   const filterAffixTags = (routes: any[], basePath = '/') => {
     let tags: TagItem[] = []
     routes.forEach((routeItem) => {
@@ -55,10 +51,8 @@ export const useTagViewSetting = () => {
   return {
     getTagList,
     getCacheTagList,
-    getTagFullscreen,
     closeTag,
     addTag,
-    toggleFullscreen,
     initTags,
   }
 }

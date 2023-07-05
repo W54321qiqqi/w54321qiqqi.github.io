@@ -1,13 +1,26 @@
 <template>
   <tag-scroll ref="tagScrollRef">
     <template #item>
-      <div v-for="item in getTagList" :key="item.fullPath">
+      <tag-action
+        trigger="contextmenu"
+        v-for="item in getTagList"
+        :key="item.fullPath"
+        :tag-item="item"
+        is-tab
+        :ref="setTagActionRef"
+        @close-all="handleCloseTagAction"
+      >
         <tag-item
           :tag="item"
           :ref="setTagWrapperRef"
           :closed="!isAffix(item) || getTagList.length !== 1"
           @close="closeTag"
         ></tag-item>
+      </tag-action>
+    </template>
+    <template #action>
+      <div class="tag-action tag-shadow flex items-center justify-center">
+        <tag-action><base-icon name="el-icon-ArrowDown" /></tag-action>
       </div>
     </template>
   </tag-scroll>
@@ -17,16 +30,20 @@ import { useTagViewSetting } from '../hooks/useTagViewSetting'
 import { useResizeObserver, useDebounceFn } from '@vueuse/core'
 import tagScroll from './tag-scroll.vue'
 import tagItem from './tag-item.vue'
+import tagAction from './tag-action.vue'
 const route = useRoute()
 const tagScrollRef = ref()
 const { getTagList, closeTag, addTag, initTags } = useTagViewSetting()
 const isAffix = (route: any) => route.meta && route.meta.affix
-initTags()
 const tagWrapperRefList = ref<any[]>([])
+const tagActionRefList = ref<any[]>([])
+initTags()
 const setTagWrapperRef = (el: any) => {
   tagWrapperRefList.value.push(el)
 }
-
+const setTagActionRef = (el: any) => {
+  tagActionRefList.value.push(el)
+}
 async function handleMoveTag() {
   await nextTick()
 
@@ -36,6 +53,11 @@ async function handleMoveTag() {
   })
 }
 
+const handleCloseTagAction = () => {
+  tagActionRefList.value.forEach((item) => {
+    item?.close?.()
+  })
+}
 useResizeObserver(
   tagScrollRef,
   useDebounceFn(() => {
@@ -64,4 +86,15 @@ watch(
 )
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.tag-action {
+  height: 100%;
+  :deep(.base-icon) {
+    height: 100%;
+    width: 36px;
+  }
+  :deep(.base-icon:first-of-type) {
+    padding: 0 9px;
+  }
+}
+</style>

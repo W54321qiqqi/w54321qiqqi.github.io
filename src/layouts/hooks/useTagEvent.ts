@@ -92,37 +92,37 @@ export const useTagEvent = (
   const getActionList = computed((): DropMenuType[] => {
     return [
       {
-        icon: 'refresh',
+        icon: 'el-icon-Refresh',
         text: '刷新页面',
         disabled: unref(refreshPageDisabled),
         command: DropMenuEnum.REFRESH_PAGE,
       },
       {
-        icon: 'close',
+        icon: 'el-icon-Close',
         text: '关闭当前标签',
         disabled: unref(closeCurrentDisabled),
         command: DropMenuEnum.CLOSE_CURRENT,
       },
       {
-        icon: 'back',
+        icon: 'el-icon-Back',
         text: '关闭左侧标签',
         disabled: unref(closeLeftDisabled),
         command: DropMenuEnum.CLOSE_LEFT,
       },
       {
-        icon: 'right',
+        icon: 'el-icon-Right',
         text: '关闭右侧标签',
         disabled: unref(closeRightDisabled),
         command: DropMenuEnum.CLOSE_RIGHT,
       },
       {
-        icon: 'svg-other',
+        icon: 'local-other',
         text: '关闭其他标签',
         disabled: unref(closeOtherDisabled),
         command: DropMenuEnum.CLOSE_OTHER,
       },
       {
-        icon: 'svg-clear',
+        icon: 'local-clear',
         text: '关闭全部标签',
         disabled: unref(closeAllDisabled),
         command: DropMenuEnum.CLOSE_ALL,
