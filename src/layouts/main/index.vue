@@ -3,9 +3,9 @@
     <div class="layout-main">
       <router-view>
         <template #default="{ Component, route }">
-          <transition name="el-fade-in-linear" mode="out-in">
+          <keep-alive :include="getCacheTagList">
             <component :is="Component" :key="route.fullPath" />
-          </transition>
+          </keep-alive>
         </template>
       </router-view>
     </div>
@@ -14,6 +14,8 @@
 
 <script setup lang="ts">
 import { useMenuSetting } from '../hooks/useMenuSetting'
+import { useTagViewSetting } from '../hooks/useTagViewSetting'
+const { getCacheTagList } = useTagViewSetting()
 const { getSideWidth, getCollapse, getSideCollapsed } = useMenuSetting()
 const paddingLeft = computed(() => {
   const padding = 16

@@ -90,12 +90,11 @@ export const useTagStore = defineStore({
       this.tagList = this.tagList.filter((item) => !!item?.meta?.affix)
       this.clearCacheTag()
     },
-
     clearCacheTag() {
       this.cacheTagList = []
     },
-    initTagList(route: RouteLocationNormalizedLoaded) {
-      this.tagList.push(route)
+    initTagList(tags: any[]) {
+      this.tagList = tags
     },
     toggleFullscreen() {
       this.fullscreen = !this.fullscreen
