@@ -24,6 +24,17 @@ const comps: AppRouteType[] = [
           permission: 'admin_components_icon',
         },
       },
+      {
+        path: 'loading',
+        name: 'Loading',
+        component: () => import('/@/views/comps/loading.vue'),
+        meta: {
+          title: 'loading',
+          sort: 2,
+          icon: '',
+          permission: 'admin_components_loading',
+        },
+      },
     ],
   },
 ]

@@ -9,10 +9,10 @@ declare module 'vue' {
   export interface GlobalComponents {
     BaseBacktop: typeof import('./../src/components/base-backtop/index.vue')['default']
     BaseBox: typeof import('./../src/components/base-box/index.vue')['default']
-    BaseBreadcrumb: typeof import('./../src/components/base-breadcrumb/index.vue')['default']
     BaseButton: typeof import('./../src/components/base-button/index.vue')['default']
     BaseIcon: typeof import('./../src/components/base-icon/index.vue')['default']
     BaseInput: typeof import('./../src/components/base-input/index.vue')['default']
+    BaseInputNumber: typeof import('./../src/components/base-input-number/base-input-number.vue')['default']
     BaseLoading: typeof import('./../src/components/base-loading/index.vue')['default']
     BasePage: typeof import('./../src/components/base-page/index.vue')['default']
     BaseResult: typeof import('./../src/components/base-result/index.vue')['default']

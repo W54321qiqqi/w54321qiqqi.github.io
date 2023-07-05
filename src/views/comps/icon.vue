@@ -98,7 +98,7 @@ const selectIcon = (iconName: string) => {
   copyValue(iconName)
 }
 const copyValue = (value: string) => {
-  const dealValue = `<Icon name="${value}" color="#000" size="18px" />`
+  const dealValue = `<base-icon name="${value}" color="#000" size="18px" />`
   navigator.clipboard.writeText(dealValue).then(
     () => {
       ElMessage.success(`${dealValue}`)

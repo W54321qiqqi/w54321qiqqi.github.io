@@ -37,6 +37,7 @@
 <script lang="ts" setup>
 import { AppRouteType } from '/@/router/types'
 import pathBrowserify from 'path-browserify'
+import { isExternal } from '/@/utils/common'
 import { PropType } from 'vue'
 const props = defineProps({
   item: {
@@ -50,13 +51,8 @@ const props = defineProps({
   },
 })
 
-const isInterLink = (path: string): boolean => {
-  const httpReg = /^http(s?):\/\//
-  return httpReg.test(path)
-}
-
 const resolvePath = (path: string): string => {
-  if (isInterLink(path as string)) {
+  if (isExternal(path as string)) {
     return path
   }
   if (props.basePath) {
@@ -67,7 +63,7 @@ const resolvePath = (path: string): string => {
 }
 
 const handleMenuClick = (val: AppRouteType) => {
-  if (isInterLink(val.path)) {
+  if (isExternal(val.path)) {
     window.open(val.path)
   }
 }

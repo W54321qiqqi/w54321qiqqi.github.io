@@ -10,6 +10,7 @@ const route = useRoute()
 const router = useRouter()
 
 const { open, close } = useLoading({ modal: false })
+debugger
 open()
 
 setTimeout(() => {

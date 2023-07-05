@@ -31,7 +31,7 @@ defineProps({
 const emit = defineEmits(['close'])
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .tag-item {
   border: 1px solid var(--base-tag-border);
   border-radius: 4px;

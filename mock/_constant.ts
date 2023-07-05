@@ -58,6 +58,7 @@ export const roleData = [
       'admin_page_error',
       'admin_components',
       'admin_components_icon',
+      'admin_components_loading',
     ],
   },
   {

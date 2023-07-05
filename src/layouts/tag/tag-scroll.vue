@@ -3,7 +3,7 @@
     <div class="tag-view-content flex flex-auto">
       <!-- 左箭头 -->
       <base-icon
-        :icon="leftIcon"
+        :name="leftIcon"
         class="tag-arrow tag-shadow"
         :class="{ disabled: leftDisabled }"
         v-if="initArrow"
@@ -25,7 +25,7 @@
       </div>
       <!-- 右箭头 -->
       <base-icon
-        :icon="rightIcon"
+        :name="rightIcon"
         class="tag-arrow tag-shadow"
         :class="{ disabled: rightDisabled }"
         v-if="initArrow"
@@ -55,11 +55,11 @@ const props = defineProps({
   },
   leftIcon: {
     type: String,
-    default: 'arrowLeft',
+    default: 'el-icon-ArrowLeft',
   },
   rightIcon: {
     type: String,
-    default: 'arrowRight',
+    default: 'el-icon-ArrowRight',
   },
   // 鼠标滚动是否开启
   wheelScroll: {

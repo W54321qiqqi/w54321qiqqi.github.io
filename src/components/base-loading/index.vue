@@ -39,11 +39,11 @@ export default defineComponent({
         <base-icon
           name="local-loading"
           color={props.textColor}
-          class="is-loading"
+          size="18px"
+          class="loading-icon"
         />
       )
     }
-
     const renderBasicLoading = () => {
       const { spin, textColor } = props
       return h(loadingMap.get(spin) as Component, { color: textColor } as any)
