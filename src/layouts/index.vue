@@ -1,8 +1,8 @@
 <template>
-  <el-container>
-    <layout-header />
-    <Tag />
-    <side-bar></side-bar>
+  <el-container class="layout-container">
+    <layout-header v-show="!getTagFullscreen" />
+    <tag-view />
+    <side-bar v-show="!getTagFullscreen"></side-bar>
     <el-container>
       <layout-main />
     </el-container>
@@ -14,7 +14,13 @@
 import sideBar from './side-bar/index.vue'
 import layoutHeader from './header/index.vue'
 import layoutMain from './main/index.vue'
-import Tag from './tag/index.vue'
+import tagView from './tag-view/index.vue'
+import { useTagViewSetting } from '/@/layouts/hooks/useTagViewSetting'
+const { getTagFullscreen } = useTagViewSetting()
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.layout-container {
+  flex-direction: column;
+}
+</style>

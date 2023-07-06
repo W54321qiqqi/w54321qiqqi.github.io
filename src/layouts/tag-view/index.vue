@@ -20,6 +20,7 @@
     </template>
     <template #action>
       <div class="tag-action tag-shadow flex items-center justify-center">
+        <tag-fullscreen />
         <tag-action><base-icon name="el-icon-ArrowDown" /></tag-action>
       </div>
     </template>
@@ -31,6 +32,7 @@ import { useResizeObserver, useDebounceFn } from '@vueuse/core'
 import tagScroll from './tag-scroll.vue'
 import tagItem from './tag-item.vue'
 import tagAction from './tag-action.vue'
+import tagFullscreen from './tag-fullscreen.vue'
 const route = useRoute()
 const tagScrollRef = ref()
 const { getTagList, closeTag, addTag, initTags } = useTagViewSetting()

@@ -1,5 +1,10 @@
 <template>
-  <div class="layout-tag-wrapper layout-filter">
+  <div
+    :class="
+      getTagFullscreen ? 'layout-tag-wrapper-fullscreen' : 'layout-tag-wrapper'
+    "
+    class="layout-filter"
+  >
     <div class="tag-view-content flex flex-auto">
       <!-- 左箭头 -->
       <base-icon
@@ -39,7 +44,9 @@
 
 <script lang="ts" setup>
 import { useMenuSetting } from '../hooks/useMenuSetting'
+import { useTagViewSetting } from '../hooks/useTagViewSetting'
 const { getSideWidth, getCollapse, getSideCollapsed } = useMenuSetting()
+const { getTagFullscreen } = useTagViewSetting()
 const paddingLeft = computed(() => {
   const padding = 16
   const sideWidth = unref(getCollapse)

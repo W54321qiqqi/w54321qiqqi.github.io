@@ -1,5 +1,8 @@
 @tailwind components;
 @layer components {
+  #app {
+    @apply h-full overflow-x-hidden bg-[#f5f5f5];
+  }
   // 布局圆角阴影
   .layout-shadow-rounded {
     @apply rounded bg-white/75 shadow-[0_0_12px_rgba(0,0,0,.12)];
@@ -16,9 +19,17 @@
   .layout-tag-wrapper {
     @apply fixed right-0 top-[50px] z-10 flex  h-[34px] border border-t-0 bg-white/75;
   }
+  .layout-tag-wrapper-fullscreen {
+    @extend .layout-tag-wrapper;
+    @apply relative top-0 w-screen;
+  }
   // 主体布局
   .layout-main {
-    @apply box-border pb-4  pr-4 pt-[100px];
+    @apply box-border  pb-4 pr-4 pt-[100px];
+  }
+  .layout-main-fullscreen {
+    @extend .layout-main;
+    @apply flex-grow pl-4 pt-4;
   }
   // 左侧布局
   .layout-side {

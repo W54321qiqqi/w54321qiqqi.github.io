@@ -1,6 +1,6 @@
 <template>
   <main class="w-full">
-    <div class="layout-main">
+    <div :class="getTagFullscreen ? 'layout-main-fullscreen' : 'layout-main'">
       <router-view>
         <template #default="{ Component, route }">
           <keep-alive :include="getCacheTagList">
@@ -13,9 +13,9 @@
 </template>
 
 <script setup lang="ts">
-import { useMenuSetting } from '../hooks/useMenuSetting'
-import { useTagViewSetting } from '../hooks/useTagViewSetting'
-const { getCacheTagList } = useTagViewSetting()
+import { useMenuSetting } from '/@/layouts/hooks/useMenuSetting'
+import { useTagViewSetting } from '/@/layouts/hooks/useTagViewSetting'
+const { getCacheTagList, getTagFullscreen } = useTagViewSetting()
 const { getSideWidth, getCollapse, getSideCollapsed } = useMenuSetting()
 const paddingLeft = computed(() => {
   const padding = 16

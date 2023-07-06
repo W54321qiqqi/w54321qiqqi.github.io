@@ -5,6 +5,7 @@ import { store } from '../index'
 interface TagState {
   tagList: RouteLocationNormalizedLoaded[]
   cacheTagList: string[]
+  fullscreen: boolean
 }
 
 interface TagRouteType extends RouteLocationNormalizedLoaded {
@@ -17,6 +18,7 @@ export const useTagStore = defineStore({
   state: (): TagState => ({
     tagList: [],
     cacheTagList: [],
+    fullscreen: false,
   }),
   getters: {},
   actions: {
@@ -93,6 +95,9 @@ export const useTagStore = defineStore({
     },
     initTagList(tags: any[]) {
       this.tagList = tags
+    },
+    toggleFullscreen() {
+      this.fullscreen = !this.fullscreen
     },
   },
 })
