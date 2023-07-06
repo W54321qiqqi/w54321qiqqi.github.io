@@ -1,5 +1,3 @@
-// import { ElMessageBox, ElMessage } from 'element-plus'
-
 interface MessageBoxConfig {
   title?: string
   icon?: string

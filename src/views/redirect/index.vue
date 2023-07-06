@@ -1,5 +1,7 @@
 <template>
-  <div class="page-redirect-container"></div>
+  <base-page>
+    <div class="page-redirect-container"></div>
+  </base-page>
 </template>
 
 <script lang="ts" setup>
@@ -10,7 +12,6 @@ const route = useRoute()
 const router = useRouter()
 
 const { open, close } = useLoading({ modal: false })
-debugger
 open()
 
 setTimeout(() => {
@@ -22,7 +23,6 @@ setTimeout(() => {
     },
   })
 }, 700)
-debugger
 </script>
 
 <style scoped></style>

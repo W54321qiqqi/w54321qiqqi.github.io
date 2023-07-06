@@ -5,6 +5,7 @@ import appRoot from './App.vue'
 import { registerIcons } from '/@/utils/common'
 import router from '/@/router'
 import '/@/styles/index.scss'
+import { setupGlobalUtils } from '/@/plugins'
 import { setupRouterGuard } from '/@/router/guard'
 import { setupPinia } from '/@/store'
 import { setupLoadingDirective, setupPermissionDirective } from './directive'
@@ -17,6 +18,8 @@ function start() {
   setupRouterGuard(router)
   // 注册自定义指令
   setupDirective(app)
+  // 注册全局方法
+  setupGlobalUtils(app)
   app.use(router)
   app.mount('#app')
 }

@@ -7,9 +7,11 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    BaseAaa: typeof import('./../src/components/base-aaa/index.vue')['default']
     BaseBacktop: typeof import('./../src/components/base-backtop/index.vue')['default']
     BaseBox: typeof import('./../src/components/base-box/index.vue')['default']
     BaseButton: typeof import('./../src/components/base-button/index.vue')['default']
+    BaseDialog: typeof import('./../src/components/base-dialog/src/base-dialog.vue')['default']
     BaseIcon: typeof import('./../src/components/base-icon/index.vue')['default']
     BaseInput: typeof import('./../src/components/base-input/index.vue')['default']
     BaseInputNumber: typeof import('./../src/components/base-input-number/base-input-number.vue')['default']
@@ -29,6 +31,7 @@ declare module 'vue' {
     ElCol: typeof import('element-plus/es')['ElCol']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElContainer: typeof import('element-plus/es')['ElContainer']
+    ElDialog: typeof import('element-plus/es')['ElDialog']
     ElDivider: typeof import('element-plus/es')['ElDivider']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']

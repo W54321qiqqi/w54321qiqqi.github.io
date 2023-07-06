@@ -16,7 +16,7 @@ const comps: AppRouteType[] = [
       {
         path: 'icon',
         name: 'Icon',
-        component: () => import('/@/views/comps/icon.vue'),
+        component: () => import('/@/views/comps/icon/index.vue'),
         meta: {
           title: 'icon',
           sort: 1,
@@ -27,12 +27,34 @@ const comps: AppRouteType[] = [
       {
         path: 'loading',
         name: 'Loading',
-        component: () => import('/@/views/comps/loading.vue'),
+        component: () => import('/@/views/comps/loading/index.vue'),
         meta: {
           title: 'loading',
           sort: 2,
           icon: '',
           permission: 'admin_components_loading',
+        },
+      },
+      {
+        path: 'button',
+        name: 'Button',
+        component: () => import('/@/views/comps/button/index.vue'),
+        meta: {
+          title: 'button',
+          sort: 3,
+          icon: '',
+          permission: 'admin_components_button',
+        },
+      },
+      {
+        path: 'dialog',
+        name: 'Dialog',
+        component: () => import('/@/views/comps/dialog/index.vue'),
+        meta: {
+          title: 'dialog',
+          sort: 4,
+          icon: '',
+          permission: 'admin_components_dialog',
         },
       },
     ],

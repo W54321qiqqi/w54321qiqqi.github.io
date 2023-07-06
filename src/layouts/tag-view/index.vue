@@ -21,7 +21,10 @@
     <template #action>
       <div class="tag-action tag-shadow flex items-center justify-center">
         <tag-fullscreen />
-        <tag-action><base-icon name="el-icon-ArrowDown" /></tag-action>
+        <tag-refresh />
+        <tag-action>
+          <base-icon name="el-icon-ArrowDown" />
+        </tag-action>
       </div>
     </template>
   </tag-scroll>
@@ -29,10 +32,11 @@
 <script setup lang="ts">
 import { useTagViewSetting } from '../hooks/useTagViewSetting'
 import { useResizeObserver, useDebounceFn } from '@vueuse/core'
-import tagScroll from './tag-scroll.vue'
-import tagItem from './tag-item.vue'
-import tagAction from './tag-action.vue'
-import tagFullscreen from './tag-fullscreen.vue'
+import TagScroll from './tag-scroll.vue'
+import TagItem from './tag-item.vue'
+import TagAction from './tag-action.vue'
+import TagFullscreen from './tag-fullscreen.vue'
+import TagRefresh from './tag-refresh.vue'
 const route = useRoute()
 const tagScrollRef = ref()
 const { getTagList, closeTag, addTag, initTags } = useTagViewSetting()
@@ -88,15 +92,6 @@ watch(
 )
 </script>
 
-<style scoped lang="scss">
-.tag-action {
-  height: 100%;
-  :deep(.base-icon) {
-    height: 100%;
-    width: 36px;
-  }
-  :deep(.base-icon:first-of-type) {
-    padding: 0 9px;
-  }
-}
+<style lang="scss" scoped>
+@use './index.scss';
 </style>

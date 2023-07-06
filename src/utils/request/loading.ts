@@ -1,7 +1,7 @@
 import { useLoading } from '/@/hooks'
 import { LoadingEnum } from '/@/enums/loadingEnum'
 const loading = useLoading({
-  spin: LoadingEnum.PLANE,
+  spin: LoadingEnum.PRELOADER,
   minTime: 500,
 })
 

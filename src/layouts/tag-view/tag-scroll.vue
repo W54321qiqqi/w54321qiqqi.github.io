@@ -21,7 +21,7 @@
         @mousewheel="handleMouseWheel"
       >
         <div
-          class="scroll-body absolute flex items-center justify-center"
+          class="scroll-body absolute flex h-full items-end justify-center"
           ref="scrollBodyRef"
           :style="{ transform: `translateX(${tagBodyLeft}px)` }"
         >
@@ -215,31 +215,6 @@ defineExpose({
 @media (max-width: 992px) {
   .layout-tag-wrapper {
     width: 100%;
-  }
-}
-.scroll-outer {
-  height: 100%;
-  overflow: hidden;
-  z-index: 1;
-  position: relative;
-  &.no-arrow {
-    margin-left: 15px;
-    margin-right: 15px;
-  }
-  .scroll-body {
-    transition: transform 0.3s ease;
-    z-index: 1;
-    white-space: nowrap;
-    height: 100%;
-  }
-}
-.tag-arrow {
-  width: 36px;
-  z-index: 99;
-  height: 100%;
-  &.disabled {
-    color: var(--el-disabled-text-color);
-    cursor: not-allowed;
   }
 }
 </style>

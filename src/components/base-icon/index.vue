@@ -19,6 +19,10 @@ export default defineComponent({
       type: String,
       default: '#000000',
     },
+    hover: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props) {
     const iconStyle = computed((): CSSProperties => {
@@ -29,12 +33,15 @@ export default defineComponent({
         color: color,
       }
     })
+    const getHover = computed(() => {
+      return props.hover ? 'base-icon base-icon-hover' : 'base-icon'
+    })
     if (props.name.indexOf('el-icon-') === 0) {
       return () => (
         <el-icon
           size={props.size}
           color={props.color}
-          class={'base-icon el-icon'}
+          class={`${getHover.value} el-icon`}
         >
           {h(resolveComponent(props.name))}
         </el-icon>
@@ -45,14 +52,24 @@ export default defineComponent({
           name={props.name}
           size={props.size}
           color={props.color}
+          class={getHover.value}
         ></svg-icon>
       )
     } else {
       return () => (
-        <i class={`${props.name} 'base-icon'`} style={iconStyle.value}></i>
+        <i
+          class={`${props.name} ${getHover.value}`}
+          style={iconStyle.value}
+        ></i>
       )
     }
   },
 })
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.base-icon-hover:hover {
+  color: var(--el-color-primary) !important;
+  transform: scale(1.3);
+  vertical-align: -0.15em;
+}
+</style>

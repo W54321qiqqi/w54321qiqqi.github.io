@@ -1,7 +1,7 @@
 <template>
   <el-dropdown
     :trigger="trigger"
-    class="pointer"
+    class="pointer h-[80%]"
     @command="handleMenuEvent"
     @visible-change="handleVisible"
     ref="dropdownRef"
@@ -16,7 +16,7 @@
         :disabled="item.disabled"
         :command="item.command"
       >
-        <base-icon :icon="item.icon" class="mr5" />
+        <base-icon :icon="item.icon" class="mr" />
         {{ item.text }}
       </el-dropdown-item>
     </template>
@@ -47,7 +47,6 @@ const { getActionList, handleMenuEvent } = useTagEvent(
   props.tagItem,
   props.isTab,
 )
-
 const dropdownRef = ref()
 
 const handleVisible = (bool: boolean) => {

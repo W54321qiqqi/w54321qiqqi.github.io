@@ -17,7 +17,7 @@ const { getTagFullscreen } = useTagViewSetting()
 @tailwind components;
 @layer components {
   .layout-page {
-    @apply h-[calc(100vh-116px)] overflow-y-hidden;
+    @apply h-[calc(100vh-116px)] overflow-y-auto;
   }
   .layout-page-fullscreen {
     @extend .layout-page;

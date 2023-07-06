@@ -59,6 +59,10 @@ export const roleData = [
       'admin_components',
       'admin_components_icon',
       'admin_components_loading',
+      'admin_components_button',
+      'admin_components_dialog',
+      'admin_func',
+      'admin_func_axios',
     ],
   },
   {
