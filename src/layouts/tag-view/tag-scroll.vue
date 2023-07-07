@@ -21,7 +21,7 @@
         @mousewheel="handleMouseWheel"
       >
         <div
-          class="scroll-body absolute flex h-full items-end justify-center"
+          class="scroll-body absolute flex h-full items-center justify-center"
           ref="scrollBodyRef"
           :style="{ transform: `translateX(${tagBodyLeft}px)` }"
         >

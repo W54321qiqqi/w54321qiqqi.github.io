@@ -1,7 +1,8 @@
 @tailwind components;
 @layer components {
   #app {
-    @apply h-full overflow-x-hidden bg-[#f5f5f5];
+    @apply h-full overflow-x-hidden;
+    background-color: var(--base-main-bg-color);
   }
   // 布局圆角阴影
   .layout-shadow-rounded {
@@ -13,7 +14,8 @@
   }
   // 头部固定
   .layout-header-fixed {
-    @apply fixed left-0 right-0 top-0 z-10  flex h-[50px] items-center border-[1px] border-slate-200 bg-white/75 leading-[50px];
+    @apply fixed left-0 right-0 top-0 z-10  flex h-[50px] items-center border-[1px] border-slate-200  leading-[50px];
+    background-color: var(--base-column-header-color);
   }
   // 面包屑
   .layout-tag-wrapper {

@@ -1,30 +1,21 @@
-import { StorageEnum } from '/@/enums/storageEnum'
-import { useStorage } from './useStorage'
 import { addClass, removeClass } from '/@/utils/dom'
-
-const { getItem, setItem } = useStorage('local')
-
-const isDark = ref<boolean>(getItem(StorageEnum.THEME_MODE) === 'dark')
-
 export const useDark = () => {
-  const htmlEle = document.documentElement
-  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
-  const toggle = (event: MouseEvent) => {
+  const root = document.documentElement
+  const isDark = ref()
+  const toggleTheme = (event: MouseEvent) => {
     const x = event.clientX
     const y = event.clientY
     const endRadius = Math.hypot(
       Math.max(x, innerWidth - x),
       Math.max(y, innerHeight - y),
     )
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    const transition = document.startViewTransition(() => {
-      if (!unref(isDark)) {
-        addClass(htmlEle, 'dark')
-      } else {
-        removeClass(htmlEle, 'dark')
-      }
-      setItem(StorageEnum.THEME_MODE, unref(isDark) ? 'dark' : 'light')
+
+    const isDark = root.classList.contains('dark')
+
+    const transition = (document as any).startViewTransition(() => {
+      addClass(root, isDark ? '' : 'dark')
+      removeClass(root, isDark ? 'dark' : '')
+      notifyIsDarkChange(isDark)
     })
 
     transition.ready.then(() => {
@@ -32,19 +23,24 @@ export const useDark = () => {
         `circle(0px at ${x}px ${y}px)`,
         `circle(${endRadius}px at ${x}px ${y}px)`,
       ]
+
       document.documentElement.animate(
         {
-          clipPath: unref(isDark) ? [...clipPath].reverse() : clipPath,
+          clipPath: isDark ? clipPath.reverse() : clipPath,
         },
         {
-          duration: 1000,
+          duration: 200,
           easing: 'ease-in',
-          pseudoElement: unref(isDark)
+          pseudoElement: isDark
             ? '::view-transition-old(root)'
             : '::view-transition-new(root)',
         },
       )
     })
   }
-  return { toggle, isDark }
+  // 订阅promise内部参数
+  function notifyIsDarkChange(notifyData: boolean) {
+    isDark.value = !notifyData
+  }
+  return { isDark, toggleTheme }
 }

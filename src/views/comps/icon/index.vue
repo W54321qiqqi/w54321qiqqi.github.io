@@ -36,7 +36,7 @@
       <div class="icon-list">
         <div
           class="icon-item"
-          v-for="(item, key) in state.iconfontIcon"
+          v-for="(item, key) in state.iconfontIcon.slice(1, 20)"
           :key="key"
           @click="selectIcon(item)"
           :title="item"
@@ -49,7 +49,7 @@
       <div class="icon-list">
         <div
           class="icon-item"
-          v-for="(item, key) in state.awesomeIcon"
+          v-for="(item, key) in state.awesomeIcon.slice(1, 20)"
           :key="key"
           @click="selectIcon(item)"
           :title="item"

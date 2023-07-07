@@ -1,5 +1,7 @@
-@use './base.scss';
 @use './dark.scss';
+@use './base.scss';
+//配置dark下的样式
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
@@ -19,4 +21,8 @@
 }
 ::view-transition-new(root) {
   z-index: 1;
+}
+
+.base-box-bg {
+  background-color: var(--base-main-content-bg-color);
 }

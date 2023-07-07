@@ -1,6 +1,6 @@
 <template>
   <div
-    class="base-box-container bg-white"
+    class="base-box-container base-box-bg"
     :class="{ shadow, hover }"
     ref="baseBoxRef"
   >
@@ -100,7 +100,7 @@ defineExpose({
 <style lang="scss" scoped>
 .base-box-container {
   overflow: hidden;
-  border: 1px solid rgb(175 175 175 / 30%);
+  border: 1px solid var(--base-tag-border);
   border-radius: 4px;
   transition: var(--el-transition-duration);
 

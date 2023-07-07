@@ -7,9 +7,20 @@ html {
   }
   // 菜单
   .el-menu {
+    .el-menu-item {
+      .base-icon {
+        color: var(--el-menu-text-color) !important;
+      }
+    }
+    .el-sub-menu .el-sub-menu__title {
+      color: var(--el-menu-text-color) !important;
+      .base-icon {
+        color: var(--el-menu-text-color) !important;
+      }
+    }
     .el-sub-menu__title:hover,
     .el-menu-item:hover {
-      color: var(--el-menu-active-color);
+      color: var(--el-menu-active-color) !important;
       .base-icon {
         color: var(--el-menu-active-color) !important;
       }
