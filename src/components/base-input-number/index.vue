@@ -39,6 +39,9 @@
 import inputNumberProps from './props'
 import { isNumber } from '/@/utils/is'
 import 'element-plus/es/components/input-number/style/css'
+defineOptions({
+  name: 'BaseInputNumber',
+})
 const props = defineProps(inputNumberProps)
 const emit = defineEmits(['update:modelValue', 'change'])
 

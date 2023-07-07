@@ -35,12 +35,8 @@
   .layout-side {
     @apply fixed left-0 top-0 box-border h-screen  pt-[50px] transition-all;
     .el-scrollbar {
-      @apply bg-white;
+      background-color: var(--el-menu-bg-color);
     }
-  }
-  // 菜单布局
-  .layout-menu {
-    @apply my-4;
   }
   // logo样式
   .logo-link {

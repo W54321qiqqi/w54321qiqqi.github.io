@@ -6,6 +6,7 @@
 }
 
 .el-overlay.dialog-blur {
+  transform: translateZ(0);
   backdrop-filter: blur(5px);
 }
 

@@ -8,7 +8,6 @@
         :collapse-transition="false"
         unique-opened
         router
-        class="layout-menu"
       >
         <side-bar-item
           v-for="route in permissionStore.route"
