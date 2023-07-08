@@ -14,7 +14,7 @@
         size="12"
         class="group-hover:text-white"
         @click.prevent.stop="emit('close', tag)"
-        :class="$route.fullPath === tag!.fullPath ?'text-[#55a9ff]':''"
+        :class="{tagClose :$route.fullPath === tag!.fullPath}"
       />
     </div>
   </router-link>
@@ -36,4 +36,8 @@ defineProps({
 const emit = defineEmits(['close'])
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.tag-close {
+  color: var(--base-tag-color);
+}
+</style>

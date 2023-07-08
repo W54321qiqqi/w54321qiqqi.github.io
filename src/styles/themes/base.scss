@@ -1,36 +1,30 @@
 html {
-  --bag-color:#fff;
-
-  // base-column-setting 头部颜色
+  //  头部颜色
   --base-column-header-color: rgb(255 255 255 / 0.75);
-
   // 头部滤镜
-  --base-header-filter:radial-gradient(transparent 1px,var(--bg-color) 1px);
-
+  --base-header-filter: radial-gradient(transparent 1px, var(--bg-color) 1px);
   //tag border
   --base-tag-border: rgba(175, 175, 175, 0.3);
-
   //menu背景颜色
   --el-menu-bg-color: white !important;
-
   //submenu 背景颜色
   --el-submenu-bg-color: white !important;
-
   // menu 文字颜色
   --el-menu-text-color: #000 !important;
-
   // menu hover 背景颜色
   --el-menu-hover-bg-color: #ecf5ff !important;
-
   //menu active文字颜色
   --el-menu-active-color: #6cb4ff !important;
-
   //系统主体背景颜色
   --base-main-bg-color: #f5f5f5;
-
   //系统主体 内容颜色
   --base-main-content-bg-color: #fff;
-  --base-tag-border-color:#fff;
+  // tag border
+  --base-tag-border-color: #fff;
+  // tag close iocn color
+  --base-tag-color: #ebf5ff;
+  //tag shadow
   --base-tag-shadow: rgb(0 21 41 / 8%);
-  --base-scrollbar-thumb:rgba(0,0,0,.3); 
+  // 滚动条颜色
+  --base-scrollbar-thumb: rgba(0, 0, 0, 0.3);
 }

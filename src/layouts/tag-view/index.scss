@@ -29,9 +29,9 @@
         mask-position: right bottom, left bottom, center top;
         mask-repeat: no-repeat;
         &.active {
-          background-color: #ebf5ff;
-          border-color: #ebf5ff;
-          color: #409eff;
+          background-color: var(--base-tag-color);
+          border-color: var(--base-tag-color);
+          color: var(--el-menu-active-color);
           z-index: 5;
           padding-left: 20px;
           &::before {
