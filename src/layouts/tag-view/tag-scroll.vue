@@ -201,7 +201,18 @@ const moveToTag = async ({
 const handleMouseWheel = (e: any) => {
   if (!unref(showArrow) || !props.wheelScroll) return
   handleScroll(e.wheelDelta / 2)
+  preventDefaultMouseWheel(e)
 }
+const preventDefaultMouseWheel = (event: TouchEvent) => {
+  event.preventDefault()
+}
+onMounted(() => {
+  document.addEventListener('touchmove', preventDefaultMouseWheel, false)
+})
+onBeforeUnmount(() => {
+  document.removeEventListener('touchmove', preventDefaultMouseWheel, false)
+})
+// 绑定事件;/
 defineExpose({
   moveToTag,
   setBodyLeft,
