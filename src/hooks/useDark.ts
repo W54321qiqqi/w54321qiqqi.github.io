@@ -9,9 +9,7 @@ export const useDark = () => {
       Math.max(x, innerWidth - x),
       Math.max(y, innerHeight - y),
     )
-
     const isDark = root.classList.contains('dark')
-
     const transition = (document as any).startViewTransition(() => {
       addClass(root, isDark ? '' : 'dark')
       removeClass(root, isDark ? 'dark' : '')

@@ -4,10 +4,10 @@ $--colors: ();
   $colors: $--colors
 );
 html.dark {
+  --bag-color:#141414;;
   --base-column-header-color: #131313;
-  //navbar 图标hover颜色
-  --base-nav-bar-box-hover: rgba(255, 255, 255, 0.06);
-  // --base-column-header-color: #f4f6fa;
+  --base-header-filter:radial-gradient(transparent 1px,var(--bg-color) 1px);
+
   //tag border
   --base-tag-border: #4f4f4f;
   //tag shadow
@@ -26,8 +26,11 @@ html.dark {
   //menu active文字颜色
   --el-menu-active-color: #fff !important;
 
-  //   //系统主体背景颜色
+  //系统主体背景颜色
   --base-main-bg-color: #000;
-  //   //系统主体 内容颜色
+  //系统主体 内容颜色
   --base-main-content-bg-color: #1d1e1f;
+  --base-tag-border-color:#131313;
+  // 滚动条颜色
+  --base-scrollbar-thumb:rgba(255,255,255,.3);
 }
