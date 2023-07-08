@@ -16,7 +16,7 @@
         :disabled="item.disabled"
         :command="item.command"
       >
-        <base-icon :icon="item.icon" class="mr" />
+        <base-icon :name="item.icon" class="mr-1" />
         {{ item.text }}
       </el-dropdown-item>
     </template>

@@ -57,6 +57,17 @@ const comps: AppRouteType[] = [
           permission: 'admin_components_dialog',
         },
       },
+      {
+        path: 'form',
+        name: 'Form',
+        component: () => import('/@/views/comps/form/index.vue'),
+        meta: {
+          title: 'form',
+          sort: 5,
+          icon: '',
+          permission: '',
+        },
+      },
     ],
   },
 ]

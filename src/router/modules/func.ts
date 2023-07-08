@@ -24,6 +24,28 @@ const func: AppRouteType[] = [
           icon: '',
         },
       },
+      {
+        path: 'message',
+        name: 'Message',
+        component: () => import('/@/views/func/message/index.vue'),
+        meta: {
+          title: 'message',
+          sort: 2,
+          permission: '',
+          icon: '',
+        },
+      },
+      {
+        path: 'watermark',
+        name: 'Watermark',
+        component: () => import('/@/views/func/watermark/index.vue'),
+        meta: {
+          title: 'watermark',
+          sort: 3,
+          permission: '',
+          icon: '',
+        },
+      },
     ],
   },
 ]
