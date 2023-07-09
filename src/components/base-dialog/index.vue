@@ -1,57 +1,59 @@
 <template>
-  <el-dialog
-    v-model="dialogVisible"
-    v-bind="getPropsValue"
-    class="base-dialog"
-    :before-close="handleBeforeClose"
-  >
-    <template #header="{ close }">
-      <div class="base-dialog-header" v-if="showHeader">
-        <span v-if="!$slots.title">{{ title }}</span>
-        <slot name="title"></slot>
-        <el-space :size="14" class="base-header-icon">
-          <base-icon
-            v-if="showFullscreen"
-            :name="fullscreen ? 'local-fullOutScreen' : 'local-fullScreen'"
-            @click="toggleFullScreen"
-            class="cursor-pointer"
-            hover
-          />
-          <base-icon
-            name="local-close"
-            class="cursor-pointer"
-            @click="close"
-            size="19"
-            hover
-          />
-        </el-space>
-      </div>
-    </template>
-
-    <el-scrollbar
-      class="el-scrollbar basic-dialog-body"
-      :style="getBodyStyle"
-      ref="bodyScrollRef"
+  <Teleport to="body">
+    <el-dialog
+      v-model="dialogVisible"
+      v-bind="getPropsValue"
+      class="base-dialog"
+      :before-close="handleBeforeClose"
     >
-      <slot></slot>
-    </el-scrollbar>
-    <template #footer v-if="!$slots.footer && showFooter">
-      <div class="base-dialog-footer" :style="{ 'text-align': btnPosition }">
-        <base-button @click="handleClose" v-if="showCancelBtn">
-          {{ cancelText }}
-        </base-button>
-        <base-button
-          type="primary"
-          v-if="showSaveBtn"
-          @click="handleSave"
-          :loading="saveLoading"
-        >
-          {{ saveText }}
-        </base-button>
-      </div>
-    </template>
-    <slot name="footer"></slot>
-  </el-dialog>
+      <template #header="{ close }">
+        <div class="base-dialog-header" v-if="showHeader">
+          <span v-if="!$slots.title">{{ title }}</span>
+          <slot name="title"></slot>
+          <el-space :size="14" class="base-header-icon">
+            <base-icon
+              v-if="showFullscreen"
+              :name="fullscreen ? 'local-fullOutScreen' : 'local-fullScreen'"
+              @click="toggleFullScreen"
+              class="cursor-pointer"
+              hover
+            />
+            <base-icon
+              name="local-close"
+              class="cursor-pointer"
+              @click="close"
+              size="19"
+              hover
+            />
+          </el-space>
+        </div>
+      </template>
+
+      <el-scrollbar
+        class="el-scrollbar basic-dialog-body"
+        :style="getBodyStyle"
+        ref="bodyScrollRef"
+      >
+        <slot></slot>
+      </el-scrollbar>
+      <template #footer v-if="!$slots.footer && showFooter">
+        <div class="base-dialog-footer" :style="{ 'text-align': btnPosition }">
+          <base-button @click="handleClose" v-if="showCancelBtn">
+            {{ cancelText }}
+          </base-button>
+          <base-button
+            type="primary"
+            v-if="showSaveBtn"
+            @click="handleSave"
+            :loading="saveLoading"
+          >
+            {{ saveText }}
+          </base-button>
+        </div>
+      </template>
+      <slot name="footer"></slot>
+    </el-dialog>
+  </Teleport>
 </template>
 
 <script lang="ts" setup>

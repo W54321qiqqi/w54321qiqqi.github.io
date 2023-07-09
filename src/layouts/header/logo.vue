@@ -24,8 +24,11 @@ const sideBarWidth = computed(() => {
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .logo-link {
   width: v-bind(sideBarWidth);
+  &:hover {
+    background: var(--base-header-box-hover);
+  }
 }
 </style>

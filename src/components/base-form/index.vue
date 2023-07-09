@@ -52,7 +52,6 @@ const getPropsValue = computed(() => {
 
 const getColumnList = computed(() => {
   const { columns, model } = props
-  console.log('🚀 ~ file: index.vue:54 ~ getColumnList ~ model:', model)
   return columns.filter((item) => {
     if (isFunction(item.show)) {
       return item.show({ model, columns })
@@ -63,11 +62,6 @@ const getColumnList = computed(() => {
     return isUndefined(item.active) || item.active
   })
 })
-console.log(
-  '🚀 ~ file: index.vue:65 ~ getColumnList ~ getColumnList:',
-  getColumnList,
-)
-
 defineExpose({
   instance: baseFormRef,
 })

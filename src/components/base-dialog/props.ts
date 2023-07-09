@@ -99,6 +99,10 @@ export const extraProps = {
     type: String,
     default: 'auto',
   },
+  maxHeight: {
+    type: String,
+    default: 'auto',
+  },
   height: {
     type: String,
     default: 'auto',

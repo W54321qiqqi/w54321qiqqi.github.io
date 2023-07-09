@@ -6,26 +6,36 @@
         <Hamburger></Hamburger>
         <Breadcrumb></Breadcrumb>
       </div>
-      <div class="flex items-center justify-between">
-        <NavSwitch></NavSwitch>
-        <el-button @click="handleLoginOut">退出登录</el-button>
+      <div class="flex h-[50px] items-center justify-between">
+        <header-search></header-search>
+        <Notification></Notification>
+        <header-fullscreen></header-fullscreen>
+        <header-switch></header-switch>
+        <User />
       </div>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
-import { useUserStoreWithOut } from '/@/store/modules/user'
 import Breadcrumb from './breadcrumb.vue'
 import Logo from './logo.vue'
 import Hamburger from './hamburger.vue'
-import NavSwitch from './nav-switch.vue'
-
-const router = useRouter()
-const userStore = useUserStoreWithOut()
-const handleLoginOut = () => {
-  userStore.logout(router)
-}
+import HeaderSwitch from './header-switch.vue'
+import HeaderFullscreen from './header-fullscreen.vue'
+import HeaderSearch from './header-search/index.vue'
+import Notification from './notification.vue'
+import User from './user.vue'
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+:deep(.action-item) {
+  padding: 0 12px;
+}
+:deep(.box-hover) {
+  height: 100%;
+  &:hover {
+    background: var(--base-header-box-hover);
+  }
+}
+</style>

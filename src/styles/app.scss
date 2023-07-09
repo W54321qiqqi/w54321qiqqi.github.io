@@ -10,21 +10,19 @@
   }
   // 布局过滤
   .layout-filter {
-    @apply bg-4px backdrop-blur-sm ;
-    background-image: var(--base-header-filter);
+    @apply backdrop-blur-sm;
+    background-color: var(--base-column-header-color);
   }
   // 头部固定
   .layout-header-fixed {
     @apply fixed left-0 right-0 top-0 z-10  flex h-[50px] items-center  leading-[50px];
-    background-color: var(--base-column-header-color);
     border: 1px solid var(--el-border-color);
   }
   // 面包屑
   .layout-tag-wrapper {
     @apply fixed right-0 top-[50px] z-10 flex  h-[34px] border border-t-0;
-    background-color: var(--base-column-header-color);
     border: 1px solid var(--el-border-color);
-    border-top: 0
+    border-top: 0;
   }
   .layout-tag-wrapper-fullscreen {
     @extend .layout-tag-wrapper;
@@ -47,7 +45,7 @@
   }
   // logo样式
   .logo-link {
-    @apply flex h-full  cursor-pointer items-center px-4 transition-all hover:bg-slate-100;
+    @apply flex h-full  cursor-pointer items-center px-4 transition-all;
   }
   // 字体隐藏
   .text-hidden {

@@ -1,12 +1,21 @@
 <template>
-  <div
-    class="nav-switch flex cursor-pointer items-center justify-center"
-    @click="toggleTheme"
-  >
-    <div class="nav-switch-action absolute" :class="{ dark: isDark }">
-      <base-icon :name="isDark ? 'local-dark' : 'local-light'" size="16px" />
+  <el-tooltip placement="bottom" content="主题">
+    <div
+      class="box-hover flex h-[50px] cursor-pointer items-center justify-center"
+    >
+      <div
+        class="header-switch flex cursor-pointer items-center justify-center"
+        @click="toggleTheme"
+      >
+        <div class="header-switch-action absolute" :class="{ dark: isDark }">
+          <base-icon
+            :name="isDark ? 'local-dark' : 'local-light'"
+            size="16px"
+          />
+        </div>
+      </div>
     </div>
-  </div>
+  </el-tooltip>
 </template>
 
 <script lang="ts" setup>
@@ -19,7 +28,7 @@ const { isDark, toggleTheme } = useDark()
 .transition {
   transition: all 0.3s;
 }
-.nav-switch {
+.header-switch {
   margin: 0 8px;
   position: relative;
   width: 40px;
@@ -27,7 +36,7 @@ const { isDark, toggleTheme } = useDark()
   border: 1px solid var(--el-border-color);
   border-radius: 10px;
   @extend .transition;
-  .nav-switch-action {
+  .header-switch-action {
     left: 1px;
     top: 0.5px;
     border-radius: 50%;

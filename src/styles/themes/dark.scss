@@ -5,7 +5,8 @@ $--colors: ();
 );
 html.dark {
   // 头部颜色
-  --base-column-header-color: #131313;
+  --base-column-header-color: rgb(0 0 0/0.75);
+  --base-header-box-hover: rgba(255, 255, 255, 0.06);
   // 头部滤镜
   --base-header-filter: radial-gradient(transparent 1px, var(--bg-color) 1px);
   //tag border
@@ -28,7 +29,7 @@ html.dark {
   --base-main-content-bg-color: #1d1e1f;
   // tag border
   --base-tag-border-color: #131313;
-  // tag close iocn color
+  // tag color
   --base-tag-color: #409eff;
   //tag shadow
   --base-tag-shadow: rgb(0 21 41 / 8%);

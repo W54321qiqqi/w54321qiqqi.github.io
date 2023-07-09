@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-full cursor-pointer px-3 hover:bg-slate-100"
+    class="box-hover h-full cursor-pointer px-3"
     @click="toggleCollapse(!getCollapse)"
   >
     <base-icon :name="getCollapse ? 'local-unfold' : 'local-fold'" />

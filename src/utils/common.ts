@@ -1,7 +1,6 @@
 import type { App } from 'vue'
 import * as elIcons from '@element-plus/icons-vue'
 import { isObject } from './is'
-
 export function registerIcons(app: App) {
   /*
    * 全局注册element Plus的icon
@@ -66,6 +65,28 @@ export function omit<T extends Record<string, any>, P extends keyof T>(
     if (obj[key] !== undefined) newObj[key] = obj[key]
   })
   return newObj
+}
+
+/**
+ * 深拷贝
+ * @param {*} source
+ * @returns {*}
+ */
+export function deepClone(source: any, hash = new WeakMap()) {
+  if (!source && typeof source !== 'object') {
+    return source
+  }
+  if (hash.get(source)) return hash.get(source)
+  const targetObj = source.constructor === Array ? [] : {}
+  hash.set(source, targetObj)
+  Object.keys(source).forEach((keys) => {
+    if (source[keys] && typeof source[keys] === 'object') {
+      ;(targetObj as any)[keys] = deepClone(source[keys])
+    } else {
+      ;(targetObj as any)[keys] = source[keys]
+    }
+  })
+  return targetObj
 }
 
 /**
