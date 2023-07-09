@@ -38,7 +38,9 @@ import dialogProps, { extraProps } from './props'
 import { componentMap } from '/@/enums/componentEnum'
 import { isBoolean, isFunction, isUndefined } from '/@/utils/is'
 import { omit } from '/@/utils/common'
-
+defineOptions({
+  name: 'BaseForm',
+})
 const props = defineProps(dialogProps)
 
 const attrs = useAttrs()

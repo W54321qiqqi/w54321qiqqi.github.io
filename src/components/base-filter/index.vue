@@ -42,7 +42,9 @@
 import baseFilterProps from './props'
 import { FormColumnType } from '../base-form/type'
 import { isUndefined } from '/@/utils/is'
-
+defineOptions({
+  name: 'BaseFilter',
+})
 const props = defineProps(baseFilterProps)
 
 const emit = defineEmits(['search'])

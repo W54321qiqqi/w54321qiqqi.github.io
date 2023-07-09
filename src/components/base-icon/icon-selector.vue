@@ -109,7 +109,9 @@ import {
 } from '/@/utils/iconfont'
 import { useEventListener } from '@vueuse/core'
 import { Placement } from 'element-plus'
-
+defineOptions({
+  name: 'IconSelector',
+})
 type IconType = 'ele' | 'awe' | 'ali' | 'local'
 
 interface Props {

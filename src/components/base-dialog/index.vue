@@ -60,7 +60,9 @@
 import dialogProps, { extraProps } from './props'
 import { isFunction } from '/@/utils/is'
 import { omit } from '/@/utils/common'
-
+defineOptions({
+  name: 'BaseDialog',
+})
 const props = defineProps(dialogProps)
 
 const emit = defineEmits(['close', 'save', 'update:visible'])

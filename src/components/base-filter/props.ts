@@ -1,5 +1,5 @@
 import { PropType } from 'vue'
-import { FormColumnType } from '../base-form'
+import { FormColumnType } from '../base-form/type'
 
 export default {
   columns: {

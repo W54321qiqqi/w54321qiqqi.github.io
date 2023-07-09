@@ -1,8 +1,8 @@
 <template>
-  <el-dropdown class="pointer box-hover action-item" trigger="click">
+  <el-dropdown class="pointer box-hover action-item" trigger="hover">
     <div class="flex items-center">
       <el-avatar :size="36" :src="headImg" />
-      <span class="ml10">{{ getUserInfo.username }}</span>
+      <span class="ml-3">{{ getUserInfo.username }}</span>
     </div>
     <template #dropdown>
       <el-dropdown-menu>

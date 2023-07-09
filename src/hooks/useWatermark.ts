@@ -33,6 +33,7 @@ export const useWatermark = (
     const el = unref(appendEl)
     if (!el) return
     domId && el.removeChild(domId)
+    console.log('🚀 ~ file: useWatermark.ts:36 ~ clear ~ domId:', domId)
   }
 
   function createBase64() {
@@ -102,6 +103,7 @@ export const useWatermark = (
     if (instance) {
       onBeforeUnmount(() => {
         clear()
+        debugger
       })
     }
   }

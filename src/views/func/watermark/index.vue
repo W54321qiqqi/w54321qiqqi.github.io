@@ -1,5 +1,5 @@
 <template>
-  <base-page>
+  <base-page class="overflow-hidden">
     <base-box title="页面水印">
       <base-form
         :columns="FormColumn"
