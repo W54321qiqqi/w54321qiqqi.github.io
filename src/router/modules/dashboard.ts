@@ -16,7 +16,7 @@ const dashboard: AppRouteType[] = [
       {
         path: 'analysis',
         name: 'Analysis',
-        component: () => import('/@/views/dashboard/analysis.vue'),
+        component: () => import('/@/views/dashboard/analysis/index.vue'),
         meta: {
           title: '分析页',
           sort: 1,
@@ -28,7 +28,7 @@ const dashboard: AppRouteType[] = [
       {
         path: 'workbench',
         name: 'Workbench',
-        component: () => import('/@/views/dashboard/workbench.vue'),
+        component: () => import('/@/views/dashboard/workbench/index.vue'),
         meta: {
           title: '工作台',
           sort: 2,

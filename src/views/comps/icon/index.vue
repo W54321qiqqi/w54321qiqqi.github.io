@@ -27,6 +27,7 @@
           v-for="(item, key) in state.localIcon"
           :key="key"
           @click="selectIcon(item)"
+          :title="item"
         >
           <base-icon :name="item" />
         </div>

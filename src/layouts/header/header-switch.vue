@@ -2,10 +2,10 @@
   <el-tooltip placement="bottom" content="主题">
     <div
       class="box-hover flex h-[50px] cursor-pointer items-center justify-center"
+      @click="toggleTheme"
     >
       <div
         class="header-switch flex cursor-pointer items-center justify-center"
-        @click="toggleTheme"
       >
         <div class="header-switch-action absolute" :class="{ dark: isDark }">
           <base-icon
