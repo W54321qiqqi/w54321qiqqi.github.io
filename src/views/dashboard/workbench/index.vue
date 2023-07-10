@@ -1,7 +1,7 @@
 <template>
   <div class="overflow-hidden">
     <TodoList :loading="loading" />
-    <el-row :gutter="16" class="mt20">
+    <el-row :gutter="16" class="mt-5">
       <el-col :span="16">
         <base-box :loading="loading" title="反馈时长统计图">
           <base-charts type="line" :options="lineOptions" />
