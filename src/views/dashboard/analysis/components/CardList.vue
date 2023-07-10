@@ -27,8 +27,7 @@
 </template>
 
 <script lang="ts" setup>
-import { cardListData } from '../column'
-
+import { cardListData } from '../data'
 defineProps({
   loading: {
     type: Boolean,
@@ -64,3 +63,4 @@ defineProps({
   }
 }
 </style>
+../data

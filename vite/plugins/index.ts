@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from './autoImportPlugin'
 import Components from './componentsPlugin'
+import VueDevTools from 'vite-plugin-vue-devtools'
 import { createWarmup } from './warmupPligin'
 import { svgBuildPlugin } from './svgBuildPlugin'
 import { configMockPlugin } from './mock'
@@ -18,6 +19,7 @@ export default function createVitePlugins(
   const isReport = VITE_BUILD_REPORT === 'true'
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     vue(),
+    VueDevTools(),
     vueJsx({}),
     AutoImport,
     Components,

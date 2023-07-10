@@ -19,12 +19,12 @@ export const cardListData: CardDataType[] = [
     icon: 'local-tongji',
   },
   {
-    title: '今日任务',
-    value: 16800,
+    title: '本月任务',
+    value: 168,
     extraTitle: '总任务',
-    extraValue: 130845,
+    extraValue: 2860,
     prefix: '',
-    suffix: '次',
+    suffix: '个',
     icon: 'local-renwuchaxun',
   },
   {

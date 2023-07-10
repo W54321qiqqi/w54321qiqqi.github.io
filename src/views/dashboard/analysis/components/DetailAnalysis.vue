@@ -157,7 +157,7 @@ const radarOption: EChartsOption = reactive({
           value: [75, 85, 80, 80, 90, 90],
           name: '访问',
           itemStyle: {
-            color: '#FF9E8C',
+            color: '#62c1fe',
           },
         },
         {

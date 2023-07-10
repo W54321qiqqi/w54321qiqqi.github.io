@@ -1,11 +1,14 @@
 <template>
   <base-seam-scroll :data="dynamicData" :options="scrollOption">
     <div
-      v-for="item in dynamicData"
+      v-for="(item, index) in dynamicData"
       :key="item.name"
       class="dynamic-item flex items-center"
     >
-      <el-avatar :size="42">{{ item.imgUrl }}</el-avatar>
+      <div>
+        <base-icon :name="item.icon" size="28" v-if="index < 3" />
+        <div v-else class="w-7 text-center">{{ index + 1 }}</div>
+      </div>
       <div class="ml-5 flex-auto">
         <div class="flex items-center justify-between">
           <span>{{ item.name }}</span>
@@ -28,32 +31,30 @@
 <script lang="ts" setup>
 const dynamicData = ref([
   {
-    name: '上海浦东分店',
-    imgUrl: '浦东',
-    value: '2000',
-    time: '刚刚',
-  },
-  {
-    name: '上海徐汇分店',
-    imgUrl: '徐汇',
+    name: '成都武侯分店',
     value: '8888',
-    time: '3分钟前',
+    time: '刚刚',
+    icon: 'local-first',
   },
   {
-    name: '上海松江分店',
-    imgUrl: '松江',
+    name: '成都双流分店',
     value: '6688',
-    time: '5分钟前',
+    time: '3分钟前',
+    icon: 'local-second',
   },
   {
-    name: '上海宝山分店',
-    imgUrl: '宝山',
+    name: '成都高新分店',
+    value: '2000',
+    time: '5分钟前',
+    icon: 'local-three',
+  },
+  {
+    name: '成都锦江分店',
     value: '1314',
     time: '10分钟前',
   },
   {
-    name: '上海杨浦分店',
-    imgUrl: '杨浦',
+    name: '成都成华分店',
     value: '666',
     time: '12分钟前',
   },

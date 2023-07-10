@@ -5,7 +5,6 @@ import { addLoginInfo } from '/@/api/log'
 import { usePermissionStore } from './permission'
 import { resetRouter } from '/@/router'
 import type { Router } from 'vue-router'
-
 interface UserState {
   token: string
   roleIds: string[]
@@ -75,7 +74,7 @@ export const useUserStore = defineStore({
       })
     },
 
-    async changeRole(role: string) {
+    async changeRole(role: string, router: Router) {
       storeReset()
       resetRouter()
       let params: any = {}
@@ -87,6 +86,7 @@ export const useUserStore = defineStore({
       await this.login(params)
       const usePermission = usePermissionStore()
       usePermission.changeRole()
+      router.push('/')
     },
   },
 })

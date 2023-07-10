@@ -52,7 +52,6 @@ const setTagActionRef = (el: any) => {
 }
 async function handleMoveTag() {
   await nextTick()
-
   unref(tagScrollRef).moveToTag({
     tagList: unref(getTagList),
     refList: unref(tagWrapperRefList),
@@ -88,6 +87,7 @@ watch(
   },
   {
     deep: true,
+    immediate: true,
   },
 )
 </script>

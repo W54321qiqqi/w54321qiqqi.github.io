@@ -36,13 +36,12 @@
 
 <script lang="ts" setup>
 import { useUserStoreWithOut } from '/@/store/modules/user'
-
 const userStore = useUserStoreWithOut()
-
+const router = useRouter()
 const { userInfo } = toRefs(userStore)
 
 const changeRole = (val: any) => {
-  userStore.changeRole(val)
+  userStore.changeRole(val, router)
 }
 </script>
 
