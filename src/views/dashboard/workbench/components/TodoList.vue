@@ -4,10 +4,13 @@
       <el-avatar :src="avatar" :size="72" class="!mx-auto !block" />
       <div class="mt-2 flex flex-col justify-center md:ml-6 md:mt-0">
         <h1 class="text-base md:text-lg">
-          早安,{{ getUserInfo.username }} , 开始您一天的工作吧！
+          {{ formatAxis(new Date()) }}{{ getUserInfo.username }} ,
+          开始您的工作吧！
         </h1>
         <span class="text-sm">
-          今日晴，{{ startTemp }}℃ - {{ endTemp.toFixed(2) }}℃！
+          今日
+          <i :class="`qi-${state.icon}`"></i>
+          {{ state.text }}，{{ state.temp }}℃！
         </span>
       </div>
       <div class="mt-4 flex flex-1 justify-end md:mt-0">
@@ -31,26 +34,26 @@
 <script lang="ts" setup>
 import avatar from '/@/assets/images/avatar.jpg'
 import { useUserStoreWithOut } from '/@/store/modules/user'
-import { WeatherKey, Location } from '/@/constant/keys'
+import { WeatherKey, WeatherLocation } from '/@/constant/keys'
 import { getWeatherInfo } from '/@/api/common'
+import { formatAxis } from '/@/utils/common'
+interface State {
+  text: string
+  temp: string
+  icon: string
+}
 const userStore = useUserStoreWithOut()
 const getUserInfo = computed(() => userStore.userInfo)
-const startTemp = ref(10 + Math.random() * 10)
-const endTemp = ref(20 + Math.random() * 15)
 const data = {
-  location: Location,
+  location: WeatherLocation,
   key: WeatherKey,
 }
+let state = reactive<Record<string, never> | State>({})
 async function getWeather() {
   const {
-    now: { text, temp, feelsLike },
+    now: { text, temp, icon },
   } = await getWeatherInfo(data)
-  console.log(
-    '🚀 ~ file: TodoList.vue:46 ~ getWeather ~ res:',
-    text,
-    temp,
-    feelsLike,
-  )
+  state = Object.assign({}, { text, temp, icon })
 }
 onMounted(() => {
   getWeather()

@@ -1,16 +1,7 @@
 import { nextTick } from 'vue'
 import { loadCss, loadJs } from './common'
 import * as elIcons from '@element-plus/icons-vue'
-
-/**
- * 动态的加载样式表，以实现：获取样式表内容（图标名称列表等）
- */
-const cssUrls: Array<string> = [
-  '//at.alicdn.com/t/c/font_4105862_c8f23f918xm.css',
-  '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
-]
-const jsUrls: Array<string> = []
-
+import { cssUrls, jsUrls } from '/@/constant/cdn'
 /*
  * 加载预设的字体图标资源
  */
