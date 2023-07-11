@@ -1,59 +1,66 @@
 <template>
-  <base-box :loading="loading" class="todo-list-wrapper" hover title="待办事项">
-    <div class="flex flex-wrap">
-      <div class="todo-list-item" v-for="item in getTodoList" :key="item.icon">
-        <el-badge :value="item.value" :max="99">
-          <base-icon :name="item.icon" size="48" />
-        </el-badge>
-        <div class="todo-list-item-title mt-4">{{ item.title }}</div>
+  <base-box :loading="props.loading" hover title="待办事项">
+    <div class="lg:flex">
+      <el-avatar :src="avatar" :size="72" class="!mx-auto !block" />
+      <div class="mt-2 flex flex-col justify-center md:ml-6 md:mt-0">
+        <h1 class="text-base md:text-lg">
+          早安,{{ getUserInfo.username }} , 开始您一天的工作吧！
+        </h1>
+        <span class="text-sm">
+          今日晴，{{ startTemp }}℃ - {{ endTemp.toFixed(2) }}℃！
+        </span>
+      </div>
+      <div class="mt-4 flex flex-1 justify-end md:mt-0">
+        <div class="flex flex-col justify-center text-right">
+          <span class="text-sm">待办</span>
+          <span class="text-2xl">2/10</span>
+        </div>
+        <div class="mx-12 flex flex-col justify-center text-right md:mx-16">
+          <span class="text-sm">项目</span>
+          <span class="text-2xl">8</span>
+        </div>
+        <div class="mr-4 flex flex-col justify-center text-right md:mr-10">
+          <span class="text-sm">团队</span>
+          <span class="text-2xl">300</span>
+        </div>
       </div>
     </div>
   </base-box>
 </template>
 
 <script lang="ts" setup>
-import { todoList } from '../data'
-defineProps({
+import avatar from '/@/assets/images/avatar.jpg'
+import { useUserStoreWithOut } from '/@/store/modules/user'
+import { WeatherKey, Location } from '/@/constant/keys'
+import { getWeatherInfo } from '/@/api/common'
+const userStore = useUserStoreWithOut()
+const getUserInfo = computed(() => userStore.userInfo)
+const startTemp = ref(10 + Math.random() * 10)
+const endTemp = ref(20 + Math.random() * 15)
+const data = {
+  location: Location,
+  key: WeatherKey,
+}
+async function getWeather() {
+  const {
+    now: { text, temp, feelsLike },
+  } = await getWeatherInfo(data)
+  console.log(
+    '🚀 ~ file: TodoList.vue:46 ~ getWeather ~ res:',
+    text,
+    temp,
+    feelsLike,
+  )
+}
+onMounted(() => {
+  getWeather()
+})
+const props = defineProps({
   loading: {
     type: Boolean,
-    default: false,
+    default: true,
   },
-})
-
-const getTodoList = computed(() => {
-  return todoList.filter((item) => item.value > 0)
 })
 </script>
 
-<style lang="scss" scoped>
-.todo-list-wrapper {
-  :deep(.base-box-content) {
-    padding-bottom: 0;
-  }
-  .todo-list-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--el-fill-color);
-    margin-right: 35px;
-    margin-bottom: 20px;
-    padding: 17px 65px;
-    border-radius: 6px;
-    cursor: pointer;
-    &:hover {
-      color: var(--el-text-color-primary);
-      background-color: var(--el-border-color-extra-light);
-    }
-    :deep(.el-badge__content) {
-      top: 1px;
-      right: 2px;
-    }
-
-    .todo-list-item-title {
-      font-size: var(--el-font-size-base);
-      color: var(--el-text-color-regular);
-    }
-  }
-}
-</style>
-../data
+<style lang="scss" scoped></style>

@@ -10,7 +10,7 @@ type TodoType = {
 
 type QuickType = {
   title: string
-  name: string
+  path: string
   icon: string
 }
 
@@ -53,51 +53,51 @@ export const todoList: TodoType[] = [
 
 export const quickList: QuickType[] = [
   {
-    title: '图标',
-    icon: 'local-icon',
-    name: 'Icon',
+    title: '组件',
+    icon: 'local-comp',
+    path: '/comps',
   },
   {
     title: '错误日志',
     icon: 'local-log',
-    name: 'ErrorLog',
+    path: '/comps',
   },
   {
-    title: '用户管理',
-    icon: 'local-setting',
-    name: 'Account',
+    title: '权限控制',
+    icon: 'local-permission',
+    path: '/comps',
   },
   {
-    title: '部门管理',
-    icon: 'local-setting',
-    name: 'Department',
+    title: '功能',
+    icon: 'local-func',
+    path: '/comps',
   },
   {
     title: '角色管理',
     icon: 'local-setting',
-    name: 'Role',
+    path: '/comps',
   },
   {
     title: '菜单管理',
     icon: 'local-setting',
-    name: 'Menu',
+    path: '/comps',
   },
 ]
 
 export const dynamicList: DynamicType[] = [
   {
-    name: '高明',
+    name: '一个小瘪三',
     type: 'text',
     time: '刚刚',
     remark: '发布了一条动态',
-    content: '我本将心向明月，奈何明月照沟渠。',
+    content: '宝剑锋从磨砺出，梅花香自苦寒来。',
     headImg: avatar01,
   },
   {
     name: '不知名用户',
     type: 'text',
     time: '15分钟前',
-    remark: '关注了张三',
+    remark: '关注了一个小瘪三',
     content: '',
     headImg: avatar02,
   },
@@ -107,9 +107,9 @@ export const dynamicList: DynamicType[] = [
     time: '20分钟前',
     remark: '发布了一组照片',
     content: [
-      'https://i.328888.xyz/2023/02/28/eu4MP.jpeg',
-      'https://i.328888.xyz/2023/02/28/euUmt.jpeg',
-      'https://i.328888.xyz/2023/02/28/euDtX.jpeg',
+      'https://img1.baidu.com/it/u=962503013,598294385&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500',
+      'https://img1.baidu.com/it/u=901475605,1506635237&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800',
+      'https://img2.baidu.com/it/u=4075901265,1581553886&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800',
     ],
     headImg: avatar02,
   },

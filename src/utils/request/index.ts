@@ -66,7 +66,7 @@ service.interceptors.response.use(
   (response: AxiosResponse) => {
     const data = response.data
     axiosCancel.removePending(response.config)
-    if (data.code === ResultEnum.SUCCESS) {
+    if (data.code === ResultEnum.SUCCESS || data.code === '200') {
       addAjaxLog(response)
       return data
     } else {
