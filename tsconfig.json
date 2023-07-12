@@ -13,7 +13,7 @@
     "skipLibCheck": true,
     "noEmit": true,
     "lib": ["esnext", "dom"],
-    "baseUrl": "./",
+    "baseUrl": "/",
     "paths": {
       "/@/*": ["src/*"]
     },
