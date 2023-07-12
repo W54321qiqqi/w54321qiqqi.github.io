@@ -1,5 +1,5 @@
 import { useTagStoreWithOut } from '/@/store/modules/tagView'
-import { DropMenuType, DropMenuEnum } from '/@/enums/dropMenuEnum'
+import { DropMenuType, DropMenuEnum } from '/@/enums/DropMenuEnum'
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
 
 export const useTagEvent = (
