@@ -12,6 +12,13 @@
         <header-fullscreen></header-fullscreen>
         <header-switch></header-switch>
         <User />
+        <!-- TODO:setting -->
+        <base-icon
+          name="local-setting"
+          color="#000"
+          size="18px"
+          class="mx-3 cursor-pointer"
+        />
       </div>
     </div>
   </header>
